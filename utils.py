@@ -13,93 +13,11 @@ import sys
 import scanpy as sc
 from anndata import AnnData
 import anndata
-sys.path.append('/data2/users/zengys/cluser_method/utils/python/')
-from common_utils import h5ad_normlizated_scanpy
-from plot_tsne import tsne
 import torch.nn.functional as F
 from scipy import sparse as sp
 import scipy.sparse
 
-def load_inductive(datastr,alpha,rmax,rrz):
-    features_train = BiP.ppr(datastr+'_train',alpha,rmax,rrz)
-    features = BiP.ppr(datastr,alpha,rmax,rrz)
-    features_train = torch.FloatTensor(features_train).T
-    features = torch.FloatTensor(features).T
-    data = np.load("data/"+datastr+"_labels.npz")
-    labels = data['labels']
-    idx_train = data['idx_train']
-    idx_val = data['idx_val']
-    idx_test = data['idx_test']
-    labels = torch.LongTensor(labels)
-    idx_train = torch.LongTensor(idx_train)
-    idx_val = torch.LongTensor(idx_val)
-    idx_test = torch.LongTensor(idx_test)
-    return features_train,features,labels,idx_train,idx_val,idx_test
 
-def load_citation2(datastr,alpha,rmax,rrz):
-    origin=True
-
-    if not origin:
-        features = BiP.ppr(datastr,alpha,rmax,rrz)
-        features = torch.FloatTensor(features).T
-    else:
-        features = np.load("data/" + datastr + "_feat.npy")
-
-    data = np.load("data/"+datastr+"_labels.npz")
-    labels = data['labels']
-    idx_train = data['idx_train']
-    idx_val = data['idx_val']
-    idx_test = data['idx_test']
-
-    if not origin:
-        new_features=features.data.cpu().numpy()
-    else:
-        new_features=features
-
-    formatting = AnnData(new_features)
-    formatting.obs["cell_type"] = labels
-    sc.pp.neighbors(formatting, n_neighbors=5, use_rep='X')
-    sc.tl.umap(formatting)
-    sc.pl.umap(formatting, color=["cell_type"], wspace=0.6)
-
-    labels = torch.LongTensor(labels)
-    idx_train = torch.LongTensor(idx_train)
-    idx_val = torch.LongTensor(idx_val)
-    idx_test = torch.LongTensor(idx_test)
-    features_train = features[idx_train]
-    if origin:
-        features = torch.FloatTensor(features)
-    return features,labels,idx_train,idx_val,idx_test
-
-def load_friendster(datastr='friendster',rmax=4e-8,rwnum=10000,rrz=0.5):
-    features_train,features_val,features_test = pre_friendster(datastr,rmax,rwnum,rrz)
-    features_train = features_train.T
-    features_val = features_val.T
-    features_test = features_test.T
-    data = np.load("data/"+datastr+"_labels.npz")
-    train_labels = torch.LongTensor(data['train_labels'])
-    val_labels = torch.LongTensor(data['val_labels'])
-    test_labels = torch.LongTensor(data['test_labels'])
-    return features_train,features_val,features_test,train_labels,val_labels,test_labels
-
-def pre_friendster(datastr='friendster',rmax=4e-8,rwnum=10000,rrz=0.5):
-    features = BiP.transition(datastr,rmax,rwnum,rrz)
-    train_idx = np.load("data/"+datastr+"_labels.npz")['train_idx']
-    val_idx = np.load("data/"+datastr+"_labels.npz")['val_idx']
-    test_idx = np.load("data/"+datastr+"_labels.npz")['test_idx']
-    tmp = np.array(features[0],dtype=np.float32)
-    feat_train = tmp[train_idx]
-    feat_val = tmp[val_idx]
-    feat_test = tmp[test_idx]
-    for i in range(1,100):
-        tmp = np.array(features[i],dtype=np.float32)
-        feat_train = np.vstack((feat_train,tmp[train_idx]))
-        feat_val = np.vstack((feat_val,tmp[val_idx]))
-        feat_test = np.vstack((feat_test,tmp[test_idx]))
-
-    del features
-    gc.collect()
-    return feat_train,feat_val,feat_test
 
 def accuracy(output, labels):
     preds = output.max(1)[1].type_as(labels)
@@ -252,7 +170,7 @@ def chcek_graph_error_rate(datastr, labels, train_index, test_index):
 
 
 def load_citation(datastr,alpha,rmax,rrz, origin_data=False, data_scale=False, umap=False):
-    base = "/data2/users/zengys/cluser_method/test_scGCN/scGCN/input/"  # scGCN_origin
+    base = "data/"  
     batch1_label = base + datastr + "/Label1.csv"
     batch2_label = base + datastr + "/Label2.csv"
 
@@ -261,64 +179,21 @@ def load_citation(datastr,alpha,rmax,rrz, origin_data=False, data_scale=False, u
     umap=umap
 
     if not origin:
-        print(datastr, alpha, rmax, rrz)
-        try:
-          features = BiP.ppr(datastr, alpha, rmax, rrz)
-        except Exception as e:
-          print(e)
-        print('?')
+        features = BiP.ppr(datastr, alpha, rmax, rrz)
         features = torch.FloatTensor(features).T
         print("over ppr")
-        # features = torch.FloatTensor(features).T
-        #features_tmp = features.data.cpu().numpy()
         if scale:
             features = features.data.cpu().numpy()
             features = minmax_scale(features, feature_range=(0, 1), axis=0)
             features = torch.FloatTensor(features)
     else:
         features=np.load("data/"+datastr+"_feat.npy")
-        # features=scipy.sparse.csr_matrix(features.astype('Float64')).tolil()
-        # features=preprocess_features(features)
-        # features=features.A
-        # np.save("data/"+datastr+"_feat_pre", features)
 
         if scale:
             features = minmax_scale(features, feature_range=(0, 1), axis=0)
         features = torch.FloatTensor(features)
 
-        #features_tmp = features
-    print(1)
-
-    #####################################tsne可视化###############################################
-    if umap:
-        from sklearn.decomposition import PCA
-        import scanpy as sc
-        from anndata import AnnData
-        features_tmp=features.numpy()
-        label1 = pd.read_csv(batch1_label, header=0).values.flatten()
-        label2 = pd.read_csv(batch2_label, header=0).values.flatten()
-        labels_x = np.concatenate((label1, label2), axis=0)
-        index1 = len(label1)
-        index2 = len(label2)
-        batch1 = ['batch1'] * index1
-        batch2 = ['batch2'] * index2
-        batch_labels = np.concatenate((batch1, batch2), axis=0)
-        pca = PCA(n_components=20)
-        features_tmp = pca.fit_transform(features_tmp)
-
-        # import pdb;
-        # pdb.set_trace()
-        formatting = AnnData(features_tmp)
-        formatting.obs["cell_type"] = labels_x
-        formatting.obs["batch"] = batch_labels
-
-        sc.pp.neighbors(formatting, n_neighbors=15, use_rep='X')
-        sc.tl.umap(formatting)
-        sc.pl.umap(formatting, color=["cell_type", 'batch'], wspace=0.6, save=datastr+".png")
-    ######################################################################################
-
-
-#####################################rename label#################################################
+   #####################################rename label#########
     label1 = pd.read_csv(batch1_label).values.flatten()
     label2 = pd.read_csv(batch2_label).values.flatten()
     get_max_pred_ratio(label1, label2)
@@ -339,18 +214,10 @@ def load_citation(datastr,alpha,rmax,rrz, origin_data=False, data_scale=False, u
     index2=len(label2)
     print("index1: ", index1)
     print("index2: ", index2)
-######################################################################################
-    #chcek_graph_error_rate(datastr, labels, index1, index2)
-##############################################train test#########################################################################################
+
     idx_train = np.arange(index1)
     idx_test= np.arange(index1, index1+index2)
-
-    # idx_test= np.arange(index1)
-    # idx_train = np.arange(index1, index1 + index2)
-
-    #idx_train, idx_val = train_test_split(idx_train, test_size=0.1, random_state=42)
     idx_train, idx_val=get_train_test_id(idx_train, label1)
- ######################################################################################
 
 
     print(features.shape)
