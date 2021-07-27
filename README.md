@@ -30,7 +30,7 @@ python -u train.py --data example
 
 ### or
 ```
-- pre_process raw data: cd data_preprocess; Rscript data_preprocess.R  
+- pre_process raw data: cd data_preprocess; Rscript data_preprocess.R example 
 - construct graph: cd graph_construction; python graph.py  --name example
 - python -u train.py --data example
 ```
