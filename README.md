@@ -1,4 +1,4 @@
-A Robust and Scalable Graph Neural Networkfor Accurate Single Cell Classification
+A Robust and Scalable Graph Neural Network for Accurate Single Cell Classification
 ============
 
 
