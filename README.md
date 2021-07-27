@@ -28,6 +28,12 @@ The `data` folder includes example dataset.
 python -u train.py --data example
 ```
 
+# or
+
+- pre_process raw: cd data_preprocess; Rscript data_preprocess.R  
+- construct graph: cd graph_construction; python graph.py  --name example
+- python -u train.py --data example
+
 
 
 ## Runing your own data
