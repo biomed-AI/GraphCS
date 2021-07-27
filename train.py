@@ -1,6 +1,6 @@
 from __future__ import division
 from __future__ import print_function
-from utils import load_citation,muticlass_f1, accuracy, muticlass_f1_test, get_silhouette_score
+from utils import load_GBP_data,muticlass_f1, accuracy, get_silhouette_score
 import time
 import random
 import argparse
@@ -18,22 +18,18 @@ from vat import VATLoss
 
 import os
 import psutil
-#os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 # memory
-pid = os.getpid()
-p = psutil.Process(pid)
-start = p.memory_full_info().uss/1024/1024
+#pid = os.getpid()
+#p = psutil.Process(pid)
+#start = p.memory_full_info().uss/1024/1024
 
 # Training settings
 parser = argparse.ArgumentParser()
-parser.add_argument('--origin_data', type=str, default=False, help='use the origin data.')
-parser.add_argument('--scale', type=str, default=False, help='use scale normlization.')
-parser.add_argument('--umap', type=str, default=False, help='umap.')
 parser.add_argument('--seed', type=int, default=20159, help='random seed.')
 parser.add_argument('--epochs', type=int, default=1000, help='number of epochs.')
 parser.add_argument('--lr', type=float, default=0.001, help='learning rate.')
-parser.add_argument('--weight_decay', type=float, default=0, help='weight decay.')
 parser.add_argument('--layer', type=int, default=2, help='number of layers.')
 parser.add_argument('--hidden', type=int, default=256, help='hidden dimensions.')
 parser.add_argument('--dropout', type=float, default=0, help='dropout rate.')
@@ -41,10 +37,10 @@ parser.add_argument('--patience', type=int, default=20, help='patience')
 parser.add_argument('--data', default='dataset8', help='dateset8')
 parser.add_argument('--dev', type=int, default=3, help='device id')
 parser.add_argument('--alpha', type=float, default=0.05, help='decay factor')
-parser.add_argument('--rmax', type=float, default=1e-5, help='threshold.')
+parser.add_argument('--rmax', type=float, default=1e-5, help='default value.')
 parser.add_argument('--rrz', type=float, default=0.5, help='gamma.')
 parser.add_argument('--bias', default='none', help='bias.')
-parser.add_argument('--batch', type=int, default=120, help='batch size')
+parser.add_argument('--batch', type=int, default=128, help='batch size')
 parser.add_argument('--gpus', type=list, default=[0], help='parallel gpu ids')
 parser.add_argument('--vat_lr', type=float, default=0.1, help='r.')
 args = parser.parse_args()
@@ -53,25 +49,12 @@ np.random.seed(args.seed)
 torch.manual_seed(args.seed)
 torch.cuda.manual_seed(args.seed)
 
-if args.origin_data=='T':
-    args.origin_data=True
-else:
-    args.origin_data = False
-
-if args.scale=='T':
-    args.scale=True
-else:
-    args.scale = False
-
-
-
 
 print("--------------------------")
 print(args)
 
 
-features,labels,idx_train,idx_val,idx_test, rename = load_citation(args.data,args.alpha,args.rmax,args.rrz, origin_data=args.origin_data,
-                                                           data_scale=args.scale, umap=args.umap)
+features,labels,idx_train,idx_val,idx_test, rename = load_GBP_data(args.data,args.alpha,args.rmax,args.rrz)
 ori_labels=labels
 ori_idx_test=idx_test
 ori_features=features
@@ -90,7 +73,7 @@ model = GnnBP(nfeat=features.shape[1],
 
 model = nn.DataParallel(model.cuda(), device_ids=args.gpus)
 
-optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
 loss_fn = nn.CrossEntropyLoss()
 
@@ -209,13 +192,11 @@ def test_chunk(rename):
         test_chunk_lable = torch.LongTensor(test_chunk_lable).cuda()
         micro_test = muticlass_f1(output, test_chunk_lable)
         acc = accuracy(output, test_chunk_lable)
-        acc_for_every_type(output, test_chunk_lable)
+        #acc_for_every_type(output, test_chunk_lable)
         print("test time:", time.time() - test_time)
 
 
         ###################get the pred cell type#################
-        # import pdb;
-        # pdb.set_trace()
         # rename = {v: k for k, v in rename.items()}
         # output = output.data.cpu().numpy().argmax(1)  #
         # test_labels = test_chunk_lable.data.cpu().numpy()
@@ -266,22 +247,21 @@ for epoch in range(args.epochs):
         break
 
 
-#f1_test, acc = test(rename)
 end_time = time.time()
 
 print("Train cost: {:.4f}s".format(train_time))
 print("val time cost: {:.4f}s".format(val_time_total))
-print("train + val time: {:.4f}s".format(train_time+val_time_total))
 
 
 f1_test2, acc2 =test_chunk(rename)
-print("Test f2:{:.3f}".format(f1_test2))
-print("Test acc2:{:.3f}".format(acc2))
+#print("Test f1:{:.3f}".format(f1_test2))
+print("--------------------------")
+print("Test acc:{:.3f}".format(acc2))
 print("--------------------------")
 
-created = p.memory_full_info().uss/1024/1024
-print("total memory:", created, "MB")
-print("process memory:", created-start, "MB")
+#created = p.memory_full_info().uss/1024/1024
+#print("total memory:", created, "MB")
+#print("process memory:", created-start, "MB")
 
 
 
