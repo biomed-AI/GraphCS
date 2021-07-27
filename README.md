@@ -20,13 +20,22 @@ make
 
 ## Datasets
 
-The `data` folder includes Baron\_mouse\_segerstolpe dataset. 
+The `data` folder includes example dataset. 
 
 ## Runing the code
 
 ```
-python -u train.py --data Baron_mouse_segerstolpe
+python -u train.py --data example
 ```
+
+
+
+## Runing your own data
+
+- pre_process raw: cd data_preprocess; Rscript data_preprocess.R --name your_data_name   
+- construct graph: cd graph_construction; python graph.py  --name your_data_name
+- python -u train.py --data your_data_name 
+
 
 
 ## Cite
