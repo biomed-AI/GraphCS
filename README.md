@@ -32,7 +32,7 @@ python -u train.py --data example
 
 ## Runing your own data
 
-- pre_process raw: cd data_preprocess; Rscript data_preprocess.R --name your_data_name   
+- pre_process raw: cd data_preprocess; Rscript data_preprocess.R  your_data_name   
 - construct graph: cd graph_construction; python graph.py  --name your_data_name
 - python -u train.py --data your_data_name 
 

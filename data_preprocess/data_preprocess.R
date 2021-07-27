@@ -33,7 +33,18 @@ get_data_from_seurat_obj_with_unique<-function(data_name){
 }
 
 
+args=commandArgs(T)
+file_name=args[1]
+print(file_name)
+
+if (is.na(file_name)){
+
 file_name="example"
+
+}
+
+
+#file_name="example"
 results=get_data_from_seurat_obj_with_unique(file_name)
 count.list=results$count
 label.list=results$label
