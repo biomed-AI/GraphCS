@@ -12,6 +12,10 @@ A Robust and Scalable Graph Neural Network for Accurate Single Cell Classificati
 - GCC 5.4.0
 - [cnpy](https://github.com/rogersce/cnpy)
 - [swig-4.0.1](https://github.com/swig/swig)
+- BBKNN
+- Scanpy
+
+
 
 ## Compilation
 ```bash
