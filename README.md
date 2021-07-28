@@ -22,18 +22,27 @@ make
 
 The `data` folder includes example dataset. 
 
-## Runing the code
 
-```
-python -u train.py --data example
-```
-
-### or
 ```
 - pre_process raw data: cd data_preprocess; Rscript data_preprocess.R example 
 - construct graph: cd graph_construction; python graph.py  --name example
 - python -u train.py --data example
 ```
+
+
+### or
+
+
+## Runing the code
+```
+ if you installed git lfs  and downloaded the processed example data in folder data,
+ you can run the following command directly. 
+```
+
+```
+python -u train.py --data example
+```
+
 
 
 ## Runing your own data

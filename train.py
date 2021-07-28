@@ -17,7 +17,7 @@ from sklearn.metrics import f1_score
 from vat import VATLoss
 
 import os
-import psutil
+#import psutil
 os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 # memory
@@ -197,17 +197,17 @@ def test_chunk(rename):
 
 
         ###################get the pred cell type#################
-        # rename = {v: k for k, v in rename.items()}
-        # output = output.data.cpu().numpy().argmax(1)  #
-        # test_labels = test_chunk_lable.data.cpu().numpy()
-        # output = output.tolist()
-        # test_labels = test_labels.tolist()
-        #
-        # output = pd.DataFrame({"pred_label": output})
-        # test_labels = pd.DataFrame({"true_label": test_labels})
-        # output = output.replace(rename).values.flatten()
-        # test_labels = test_labels.replace(rename).values.flatten()
-        # pd.DataFrame({"true_label": test_labels, "pred_label": output}).to_csv("pred.csv", index=False)
+        rename = {v: k for k, v in rename.items()}
+        output = output.data.cpu().numpy().argmax(1)  #
+        test_labels = test_chunk_lable.data.cpu().numpy()
+        output = output.tolist()
+        test_labels = test_labels.tolist()
+        
+        output = pd.DataFrame({"pred_label": output})
+        test_labels = pd.DataFrame({"true_label": test_labels})
+        output = output.replace(rename).values.flatten()
+        test_labels = test_labels.replace(rename).values.flatten()
+        pd.DataFrame({"true_label": test_labels, "pred_label": output}).to_csv(args.data + "_pred.csv", index=False)
 
         ####################################
 

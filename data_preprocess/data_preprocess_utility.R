@@ -50,6 +50,7 @@ save_processed_data <- function(count.list,label.list, data_name="example"){
     write.csv(label.list[[2]],file=paste0('../data/', data_name, '/Label2.csv'),quote=F,row.names=F)
 
     #' save processed data to certain path: 'process_data'
+    dir.create('../process_data')
     outputdir <- paste0('../process_data/',data_name); dir.create(outputdir)
 
     N <- length(norm.list)
