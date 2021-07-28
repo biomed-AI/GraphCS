@@ -4,7 +4,6 @@ A Robust and Scalable Graph Neural Network for Accurate Single Cell Classificati
 
 ## Overview
 
-```
 Single-cell RNA sequencing (scRNA-seq) techniques provide high-resolution data on cellular heterogeneity in diverse tissues, and a critical step for the data analysis is cell type 
 identification. Tradi-tional methods usually cluster the cells and manually identify cell clusters through marker genes, which is time-consuming and subjective. With the launch of 
 several large-scale single-cell projects, millions of sequenced cells have been annotated and it is promising to transfer labels from the annotated datasets to newly generated datasets. One powerful way for the transferring is to learn cell relations through the graph neural network (GNN), while vanilla GNN is difficult to process millions of cells due to 
@@ -14,7 +13,7 @@ the slow information propaga-tion of GNN at each training epoch, the diffused in
  complexity for a high speed and scalability on millions of cells. Compared with existing methods, GraphCS demonstrates better performance on simulated, cross-platform, and 
 cross-species scRNA-seq datasets. More importantly, our model can achieve superior performance on a large dataset with one million cells within 50 minutes.
 
-```
+
 
 
 ![(Variational) gcn](Fig._1.jpg)
