@@ -64,52 +64,6 @@ def preprocess_features(features):
     return features
 
 
-def chcek_graph_error_rate(datastr, labels, train_index, test_index):
-    inter_count=0
-    inter_error_count=0
-    train_intra_count=0
-    train_intra_error_count=0
-    test_intra_count=0
-    test_intra_error_count=0
-    error_count=0
-
-    graph_path="data/"+datastr+".txt"
-    data=pd.read_table(graph_path).values
-    total_count = data.shape[0]
-    edge_con=True
-    for value in data:
-         split_value= value[0].split(' ')
-         index1, index2=int(split_value[0]), int(split_value[1])
-
-         if labels[index1]!=labels[index2]:
-             error_count+=1
-             edge_con=False
-         if index1 <train_index and index2 <train_index:
-             train_intra_count+=1
-             if not edge_con:
-                 train_intra_error_count+=1
-         elif index1>train_index and index2>train_index:
-             test_intra_count+=1
-             if not edge_con:
-                 test_intra_error_count+=1
-         else:
-             inter_count+=1
-             if not edge_con:
-                  inter_error_count+=1
-         edge_con = True
-
-    print("graph error: ", error_count/total_count)
-    print("train_intra_count ", train_intra_count)
-    print("train_intra_error_count ", train_intra_error_count/train_intra_count)
-    print("inter_count ", inter_count)
-    print("inter_error_count ", inter_error_count/inter_count)
-    print("test_intra_count ", test_intra_count)
-    if test_intra_count >0:
-        print("test_intra_error_count ", test_intra_error_count/test_intra_count)
-
-
-
-
 def load_GBP_data(datastr,alpha,rmax,rrz, origin_data=True):
     base = "data/"  
     batch1_label = base + datastr + "/Label1.csv"
