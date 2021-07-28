@@ -11,7 +11,8 @@ the expensive costs of the message-passing procedure at each training epoch. Her
 (GraphCS), where the graph is constructed to connect similar cells within and between labelled and unlabelled scRNA-seq datasets for propagation of shared information. To overcome 
 the slow information propaga-tion of GNN at each training epoch, the diffused information is pre-calculated via the approximate Generalized PageRank algorithm, enabling sublinear
  complexity for a high speed and scalability on millions of cells. Compared with existing methods, GraphCS demonstrates better performance on simulated, cross-platform, and 
-cross-species scRNA-seq datasets. GraphCS is implemented as an integrated workflow and provided here.
+cross-species scRNA-seq datasets. More importantly, our model can achieve superior performance on a large dataset with one million cells within 50 minutes.
+ GraphCS is implemented as an integrated workflow and provided here.
 
 
 
