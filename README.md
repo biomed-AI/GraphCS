@@ -78,7 +78,7 @@ The predicted cell labels will be stored in the dataname_pred.csv.
 
 
 
-## Runing your own data
+# Runing your own data
 
 - pre_process raw data: cd data_preprocess; Rscript data_preprocess.R  your_data_name   
 - construct graph: cd graph_construction; python graph.py  --name your_data_name
