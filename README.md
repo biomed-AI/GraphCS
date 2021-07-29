@@ -60,8 +60,7 @@ The `data` folder includes the Preprocessed  example data.
 
 ### run on the Preprocessed  example data
 
- if you have installed git lfs  and downloaded the Preprocessed example data in folder `data`,
- you can run the following command to train model and predict cell types directly. 
+ You can download the Preprocessed  example data from website: `https://drive.google.com/drive/folders/18usNrDU6CS0Ydxc7zei8bTgLHQ2RV-G2?usp=sharing`, and put them into the 'data' folder. Then you can run the following command to train GraphCS and predict cell types directly. 
 
 
 ```
