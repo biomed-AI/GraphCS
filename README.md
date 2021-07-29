@@ -39,11 +39,15 @@ make
 
 ## Datasets
 
-The `example_data` folder includes example datasets. 
+The `example_data` folder includes the raw example data. 
+
+The `data` folder includes the Preprocessed  example data.
 
 
 
 # Run the demo
+
+### run on the raw example data
 
 ```
 - pre_process raw data: cd data_preprocess; Rscript data_preprocess.R example 
@@ -54,9 +58,10 @@ The `example_data` folder includes example datasets.
 
 ### or
 
+### run on the Preprocessed  example data
 
 ```
- if you installed git lfs  and downloaded the processed example data in folder data,
+ if you have installed git lfs  and downloaded the Preprocessed example data in folder data,
  you can run the following command to train model and predict cell types directly. 
 ```
 
