@@ -60,10 +60,9 @@ The `data` folder includes the Preprocessed  example data.
 
 ### run on the Preprocessed  example data
 
-```
  if you have installed git lfs  and downloaded the Preprocessed example data in folder data,
  you can run the following command to train model and predict cell types directly. 
-```
+
 
 ```
 python -u train.py --data example
