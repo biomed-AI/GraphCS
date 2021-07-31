@@ -64,7 +64,7 @@ The `data` folder includes the Preprocessed  example data.
 python -u train.py --data Baron_segerstolpe_example.ref
 ```
 
- You can download the Preprocessed  example data from the [website](https://drive.google.com/drive/folders/18usNrDU6CS0Ydxc7zei8bTgLHQ2RV-G2?usp=sharing), and put them into the `data` folder. Then you can follow the above command to train GraphCS and predict cell types directly. 
+ You can download the other Preprocessed  example data from the [website](https://drive.google.com/drive/folders/18usNrDU6CS0Ydxc7zei8bTgLHQ2RV-G2?usp=sharing), and put them into the `data` folder. Then you can follow the above command to train GraphCS and predict cell types directly. 
 
 
 ## output
