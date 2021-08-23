@@ -1,0 +1,339 @@
+*************************************
+data/Baron_mouse_combination_conos.txt
+--------------------------
+Namespace(alias_name='conos', alpha=0.05, batch=128, bias='none', data='Baron_mouse_combination', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_combination pre-computation cost: 2.19761 s
+over ppr
+over load data
+Train cost: 24.8324s
+val time cost: 0.3004s
+test time: 0.44643640518188477
+--------------------------
+Test acc:0.943
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_combination_ccamnn.txt
+--------------------------
+Namespace(alias_name='ccamnn', alpha=0.05, batch=128, bias='none', data='Baron_mouse_combination', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_combination pre-computation cost: 1.15719 s
+over ppr
+over load data
+Train cost: 25.0241s
+val time cost: 0.3147s
+test time: 0.46127963066101074
+--------------------------
+Test acc:0.918
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_combination_annoy.txt
+--------------------------
+Namespace(alias_name='annoy', alpha=0.05, batch=128, bias='none', data='Baron_mouse_combination', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_combination pre-computation cost: 4.50044 s
+over ppr
+over load data
+Train cost: 19.6474s
+val time cost: 0.2316s
+test time: 0.5083279609680176
+--------------------------
+Test acc:0.577
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_combination_umap.txt
+--------------------------
+Namespace(alias_name='umap', alpha=0.05, batch=128, bias='none', data='Baron_mouse_combination', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_combination pre-computation cost: 13.9202 s
+over ppr
+over load data
+Train cost: 35.2133s
+val time cost: 0.4234s
+test time: 0.4401111602783203
+--------------------------
+Test acc:0.578
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_combination_sklearnknn.txt
+--------------------------
+Namespace(alias_name='sklearnknn', alpha=0.05, batch=128, bias='none', data='Baron_mouse_combination', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_combination pre-computation cost: 3.50089 s
+over ppr
+over load data
+Train cost: 43.5215s
+val time cost: 0.5819s
+test time: 0.42376089096069336
+--------------------------
+Test acc:0.551
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_combination_cosine.txt
+--------------------------
+Namespace(alias_name='cosine', alpha=0.05, batch=128, bias='none', data='Baron_mouse_combination', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_combination pre-computation cost: 4.26209 s
+over ppr
+over load data
+Train cost: 44.4174s
+val time cost: 0.5511s
+test time: 0.4824199676513672
+--------------------------
+Test acc:0.428
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_segerstolpe_conos.txt
+--------------------------
+Namespace(alias_name='conos', alpha=0.05, batch=128, bias='none', data='Baron_mouse_segerstolpe', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_segerstolpe pre-computation cost: 2.07359 s
+over ppr
+over load data
+Train cost: 13.9563s
+val time cost: 0.1868s
+test time: 0.2415449619293213
+--------------------------
+Test acc:0.830
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_segerstolpe_ccamnn.txt
+--------------------------
+Namespace(alias_name='ccamnn', alpha=0.05, batch=128, bias='none', data='Baron_mouse_segerstolpe', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_segerstolpe pre-computation cost: 0.936383 s
+over ppr
+over load data
+Epoch:0100 train loss:0.152 | val acc:0.887728 | cost46.994
+Train cost: 52.0858s
+val time cost: 0.6801s
+test time: 0.20284175872802734
+--------------------------
+Test acc:0.792
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_segerstolpe_annoy.txt
+--------------------------
+Namespace(alias_name='annoy', alpha=0.05, batch=128, bias='none', data='Baron_mouse_segerstolpe', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_segerstolpe pre-computation cost: 2.85152 s
+over ppr
+over load data
+Train cost: 34.1616s
+val time cost: 0.4240s
+test time: 0.2290487289428711
+--------------------------
+Test acc:0.360
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_segerstolpe_umap.txt
+--------------------------
+Namespace(alias_name='umap', alpha=0.05, batch=128, bias='none', data='Baron_mouse_segerstolpe', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_segerstolpe pre-computation cost: 11.4064 s
+over ppr
+over load data
+Train cost: 34.6154s
+val time cost: 0.4396s
+test time: 0.2175307273864746
+--------------------------
+Test acc:0.358
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_segerstolpe_sklearnknn.txt
+--------------------------
+Namespace(alias_name='sklearnknn', alpha=0.05, batch=128, bias='none', data='Baron_mouse_segerstolpe', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_segerstolpe pre-computation cost: 2.18069 s
+over ppr
+over load data
+Train cost: 45.7005s
+val time cost: 0.5597s
+test time: 0.21956348419189453
+--------------------------
+Test acc:0.299
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_segerstolpe_cosine.txt
+--------------------------
+Namespace(alias_name='cosine', alpha=0.05, batch=128, bias='none', data='Baron_mouse_segerstolpe', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_segerstolpe pre-computation cost: 2.89611 s
+over ppr
+over load data
+Train cost: 23.9574s
+val time cost: 0.2823s
+test time: 0.22068285942077637
+--------------------------
+Test acc:0.689
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_Baron_human_conos.txt
+--------------------------
+Namespace(alias_name='conos', alpha=0.05, batch=128, bias='none', data='Baron_mouse_Baron_human', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_Baron_human pre-computation cost: 2.18388 s
+over ppr
+over load data
+Train cost: 17.2044s
+val time cost: 0.2285s
+test time: 0.3270587921142578
+--------------------------
+Test acc:0.963
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_Baron_human_ccamnn.txt
+--------------------------
+Namespace(alias_name='ccamnn', alpha=0.05, batch=128, bias='none', data='Baron_mouse_Baron_human', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_Baron_human pre-computation cost: 0.956849 s
+over ppr
+over load data
+Train cost: 25.3754s
+val time cost: 0.3339s
+test time: 0.3513059616088867
+--------------------------
+Test acc:0.978
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_Baron_human_annoy.txt
+--------------------------
+Namespace(alias_name='annoy', alpha=0.05, batch=128, bias='none', data='Baron_mouse_Baron_human', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_Baron_human pre-computation cost: 4.18932 s
+over ppr
+over load data
+Train cost: 23.7476s
+val time cost: 0.2848s
+test time: 0.3318197727203369
+--------------------------
+Test acc:0.520
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_Baron_human_umap.txt
+--------------------------
+Namespace(alias_name='umap', alpha=0.05, batch=128, bias='none', data='Baron_mouse_Baron_human', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_Baron_human pre-computation cost: 13.0729 s
+over ppr
+over load data
+Train cost: 51.1508s
+val time cost: 0.5941s
+test time: 0.36282968521118164
+--------------------------
+Test acc:0.525
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_Baron_human_sklearnknn.txt
+--------------------------
+Namespace(alias_name='sklearnknn', alpha=0.05, batch=128, bias='none', data='Baron_mouse_Baron_human', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_Baron_human pre-computation cost: 3.25789 s
+over ppr
+over load data
+Train cost: 37.7049s
+val time cost: 0.5117s
+test time: 0.33217501640319824
+--------------------------
+Test acc:0.503
+--------------------------
+###########################################################################
+*************************************
+data/Baron_mouse_Baron_human_cosine.txt
+--------------------------
+Namespace(alias_name='cosine', alpha=0.05, batch=128, bias='none', data='Baron_mouse_Baron_human', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_Baron_human pre-computation cost: 3.64595 s
+over ppr
+over load data
+Train cost: 17.2149s
+val time cost: 0.1978s
+test time: 0.3239593505859375
+--------------------------
+Test acc:0.493
+--------------------------
+###########################################################################
+*************************************
+data/Baron_human_Baron_mouse_conos.txt
+--------------------------
+Namespace(alias_name='conos', alpha=0.05, batch=128, bias='none', data='Baron_human_Baron_mouse', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_human_Baron_mouse pre-computation cost: 2.19447 s
+over ppr
+over load data
+Train cost: 30.2605s
+val time cost: 1.0113s
+test time: 0.23652052879333496
+--------------------------
+Test acc:0.902
+--------------------------
+###########################################################################
+*************************************
+data/Baron_human_Baron_mouse_ccamnn.txt
+--------------------------
+Namespace(alias_name='ccamnn', alpha=0.05, batch=128, bias='none', data='Baron_human_Baron_mouse', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_human_Baron_mouse pre-computation cost: 0.6126 s
+over ppr
+over load data
+Epoch:0100 train loss:0.122 | val acc:0.955207 | cost54.768
+Train cost: 55.2816s
+val time cost: 2.0649s
+test time: 0.22482967376708984
+--------------------------
+Test acc:0.777
+--------------------------
+###########################################################################
+*************************************
+data/Baron_human_Baron_mouse_annoy.txt
+--------------------------
+Namespace(alias_name='annoy', alpha=0.05, batch=128, bias='none', data='Baron_human_Baron_mouse', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_human_Baron_mouse pre-computation cost: 4.46026 s
+over ppr
+over load data
+Train cost: 42.1449s
+val time cost: 1.3484s
+test time: 0.22572636604309082
+--------------------------
+Test acc:0.741
+--------------------------
+###########################################################################
+*************************************
+data/Baron_human_Baron_mouse_umap.txt
+--------------------------
+Namespace(alias_name='umap', alpha=0.05, batch=128, bias='none', data='Baron_human_Baron_mouse', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_human_Baron_mouse pre-computation cost: 13.495 s
+over ppr
+over load data
+Train cost: 30.5663s
+val time cost: 1.1095s
+test time: 0.2030937671661377
+--------------------------
+Test acc:0.357
+--------------------------
+###########################################################################
+*************************************
+data/Baron_human_Baron_mouse_sklearnknn.txt
+--------------------------
+Namespace(alias_name='sklearnknn', alpha=0.05, batch=128, bias='none', data='Baron_human_Baron_mouse', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_human_Baron_mouse pre-computation cost: 3.46473 s
+over ppr
+over load data
+Epoch:0100 train loss:0.126 | val acc:0.945317 | cost55.392
+Train cost: 57.5772s
+val time cost: 1.9128s
+test time: 0.2277204990386963
+--------------------------
+Test acc:0.661
+--------------------------
+###########################################################################
+*************************************
+data/Baron_human_Baron_mouse_cosine.txt
+--------------------------
+Namespace(alias_name='cosine', alpha=0.05, batch=128, bias='none', data='Baron_human_Baron_mouse', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_human_Baron_mouse pre-computation cost: 3.62434 s
+over ppr
+over load data
+Train cost: 23.4698s
+val time cost: 0.7824s
+test time: 0.2226400375366211
+--------------------------
+Test acc:0.355
+--------------------------
+###########################################################################

@@ -35,6 +35,7 @@ parser.add_argument('--hidden', type=int, default=256, help='hidden dimensions.'
 parser.add_argument('--dropout', type=float, default=0, help='dropout rate.')
 parser.add_argument('--patience', type=int, default=20, help='patience')
 parser.add_argument('--data', default='dataset8', help='dateset8')
+parser.add_argument('--savepath', type=int, default=3, help='0: cross-platforms  1: cross-species  2: simulated 3: NULL')
 parser.add_argument('--dev', type=int, default=3, help='device id')
 parser.add_argument('--alpha', type=float, default=0.05, help='decay factor')
 parser.add_argument('--rmax', type=float, default=1e-5, help='default value.')
@@ -228,7 +229,7 @@ for epoch in range(args.epochs):
     f1_val = validate()
     val_time_total+=time.time()-begin_val_time
     train_time+=train_ep
-    if(epoch+1)%1 == 0:
+    if(epoch+1)%10 == 0:
         print('Epoch:{:04d}'.format(epoch+1),
             'train',
             'loss:{:.3f}'.format(loss_tra),
@@ -258,7 +259,12 @@ f1_test2, acc2 =test_chunk(rename)
 print("--------------------------")
 print("Test acc:{:.3f}".format(acc2))
 print("--------------------------")
-
+acc2=round(acc2,9)
+if args.savepath!=3:
+    savepath=["cross-platforms.txt",'cross-species.txt','simulate.txt']
+    with open(savepath[args.savepath],'a+') as f:
+        f.write(str(acc2)+'\n')
+        f.close()
 #created = p.memory_full_info().uss/1024/1024
 #print("total memory:", created, "MB")
 #print("process memory:", created-start, "MB")

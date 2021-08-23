@@ -61,6 +61,7 @@ def convert_data_graph_construction(name):
     data = np.hstack((train_data.values, test_data.values))
 
     data_value = data.T
+    data_value_for_graph=copy.deepcopy(data_value)
     minmax_scale(data_value, feature_range=(0, 1), axis=0, copy=False)
     save_path = "../data/" + name + "_feat"
     np.save(save_path, data_value)
@@ -70,7 +71,7 @@ def convert_data_graph_construction(name):
     batch2_label = "../data/" + name + "/Label2.csv"
     index1 = len(pd.read_csv(batch1_label).values.flatten())
     index2 = len(pd.read_csv(batch2_label).values.flatten())
-    bbknn_construct_graph(name, data_value, index1, index2)
+    bbknn_construct_graph(name, data_value_for_graph, index1, index2)
 
 
 

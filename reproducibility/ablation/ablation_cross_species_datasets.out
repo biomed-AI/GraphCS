@@ -1,0 +1,124 @@
+--------------------------
+Namespace(alias_name='GraphCS', alpha=0.05, batch=128, bias='none', data='Baron_mouse_combination', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_combination pre-computation cost: 5.46728 s
+over ppr
+over load data
+Train cost: 34.7101s
+val time cost: 0.4310s
+test time: 0.4498724937438965
+--------------------------
+Test acc:0.965
+--------------------------
+--------------------------
+Namespace(alias_name='VAT-', alpha=0.05, batch=128, bias='none', data='Baron_mouse_combination', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.0)
+Baron_mouse_combination pre-computation cost: 5.1792 s
+over ppr
+over load data
+Train cost: 19.0605s
+val time cost: 0.2624s
+test time: 0.463329553604126
+--------------------------
+Test acc:0.885
+--------------------------
+--------------------------
+Namespace(alias_name='GBP-', alpha=0.05, batch=128, bias='none', data='Baron_mouse_combination', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=True, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.0)
+over load data
+Train cost: 11.8396s
+val time cost: 0.1018s
+test time: 0.4677896499633789
+--------------------------
+Test acc:0.743
+--------------------------
+--------------------------
+Namespace(alias_name='GraphCS', alpha=0.05, batch=128, bias='none', data='Baron_mouse_segerstolpe', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_segerstolpe pre-computation cost: 5.63866 s
+over ppr
+over load data
+Train cost: 38.5753s
+val time cost: 0.5179s
+test time: 0.2502729892730713
+--------------------------
+Test acc:0.973
+--------------------------
+--------------------------
+Namespace(alias_name='VAT-', alpha=0.05, batch=128, bias='none', data='Baron_mouse_segerstolpe', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.0)
+Baron_mouse_segerstolpe pre-computation cost: 5.29802 s
+over ppr
+over load data
+Train cost: 24.0446s
+val time cost: 0.4334s
+test time: 0.3047909736633301
+--------------------------
+Test acc:0.921
+--------------------------
+--------------------------
+Namespace(alias_name='GBP-', alpha=0.05, batch=128, bias='none', data='Baron_mouse_segerstolpe', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=True, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.0)
+over load data
+Train cost: 9.7415s
+val time cost: 0.1053s
+test time: 0.22805237770080566
+--------------------------
+Test acc:0.793
+--------------------------
+--------------------------
+Namespace(alias_name='GraphCS', alpha=0.05, batch=128, bias='none', data='Baron_mouse_Baron_human', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_mouse_Baron_human pre-computation cost: 6.17166 s
+over ppr
+over load data
+Train cost: 16.2860s
+val time cost: 0.2029s
+test time: 0.373612642288208
+--------------------------
+Test acc:0.949
+--------------------------
+--------------------------
+Namespace(alias_name='VAT-', alpha=0.05, batch=128, bias='none', data='Baron_mouse_Baron_human', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.0)
+Baron_mouse_Baron_human pre-computation cost: 6.17183 s
+over ppr
+over load data
+Train cost: 24.0576s
+val time cost: 0.3638s
+test time: 0.35085511207580566
+--------------------------
+Test acc:0.921
+--------------------------
+--------------------------
+Namespace(alias_name='GBP-', alpha=0.05, batch=128, bias='none', data='Baron_mouse_Baron_human', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=True, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.0)
+over load data
+Train cost: 20.0744s
+val time cost: 0.1893s
+test time: 0.34066104888916016
+--------------------------
+Test acc:0.708
+--------------------------
+--------------------------
+Namespace(alias_name='GraphCS', alpha=0.05, batch=128, bias='none', data='Baron_human_Baron_mouse', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.1)
+Baron_human_Baron_mouse pre-computation cost: 5.92065 s
+over ppr
+over load data
+Train cost: 19.1445s
+val time cost: 0.7025s
+test time: 0.24521780014038086
+--------------------------
+Test acc:0.965
+--------------------------
+--------------------------
+Namespace(alias_name='VAT-', alpha=0.05, batch=128, bias='none', data='Baron_human_Baron_mouse', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=False, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.0)
+Baron_human_Baron_mouse pre-computation cost: 5.9285 s
+over ppr
+over load data
+Train cost: 24.2059s
+val time cost: 0.9700s
+test time: 0.24860596656799316
+--------------------------
+Test acc:0.961
+--------------------------
+--------------------------
+Namespace(alias_name='GBP-', alpha=0.05, batch=128, bias='none', data='Baron_human_Baron_mouse', dev=3, dropout=0, epochs=1000, gpus=[0], hidden=256, layer=2, lr=0.001, origin_data=True, patience=20, result='result.out', rmax=1e-05, rrz=0.5, seed=20159, vat_lr=0.0)
+over load data
+Train cost: 20.1198s
+val time cost: 0.3427s
+test time: 0.23219990730285645
+--------------------------
+Test acc:0.903
+--------------------------
