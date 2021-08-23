@@ -8,7 +8,11 @@ import argparse
 import numpy as np
 import copy as cp
 from scnym.api import scnym_api
-base='/data2/users/zengys/task_py/cross-platforms/dataset/h5data/'
+
+#First, you need to convert RData data to h5ad data using conver_between_scanpy_seruta.R 
+# ,and save the h5ad data into dataset
+base='./dataset/'
+
 def main(dataname,bigdata=False):
     trainset=sc.read_h5ad(base+'/train/%s.h5ad'%(dataname))
     testset=sc.read_h5ad(base+'/test/%s.h5ad'%(dataname))

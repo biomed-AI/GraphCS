@@ -19,7 +19,11 @@ from pytorch_lightning.callbacks import LearningRateMonitor
 from scipy.sparse import csr_matrix
 from torch.nn import Softplus
 EPOCHES=15
-base='/data2/users/zengys/task_py/cross-platforms/dataset/h5data/'
+
+#First, you need to convert RData data to h5ad data using conver_between_scanpy_seruta.R 
+# ,and save the h5ad data into dataset
+
+base='./dataset/'
 def proc_data(adata,key='CellType'):
     adata.layers["counts"] = adata.X.copy()
     sc.pp.normalize_total(adata, target_sum=1e4)

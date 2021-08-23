@@ -1,6 +1,7 @@
 library(SeuratDisk)
 library(Seurat)
 
+if (!dir.exists('./dataset')){dir.create('./dataset')}
 
 updatedata<-function(name,savepath='h5data'){
 	base="../../example_data/"
