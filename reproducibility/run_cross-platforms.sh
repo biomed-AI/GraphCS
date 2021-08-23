@@ -12,20 +12,24 @@ dataset1=(
 for filename in ${dataset1[*]}
 do
       echo $filename
-      source activate main
+      cd data_preprocess
       Rscript data_preprocess.R $filename
+      cd ..      
+
       cd graph_construction
       python graph.py --name  $filename
       cd ..
-      source activate zengys_bbknn
+
       python -u train.py  --data  $filename --savepath 0 --batch 1024
 done
 
 bigdata='mouse_brain'
 source activate main
-# cd data_preprocess
-# Rscript normalized_big_data.R
-# cd ..
+# save bigdata as h5 format
+ cd data_preprocess
+ Rscript normalized_big_data.R
+ cd ..
+
 cd graph_construction
 python graph_for_big_data.py --name  $bigdata
 cd ..
