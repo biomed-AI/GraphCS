@@ -24,7 +24,6 @@ do
 done
 
 bigdata='mouse_brain'
-source activate main
 # save bigdata as h5 format
  cd data_preprocess
  Rscript normalized_big_data.R
@@ -33,7 +32,6 @@ source activate main
 cd graph_construction
 python graph_for_big_data.py --name  $bigdata
 cd ..
-source activate zengys_bbknn
 python -u train.py  --data $bigdata  --savepath 0 --batch 4096 --patience 5
 
 
