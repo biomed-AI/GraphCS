@@ -9,7 +9,7 @@ import numpy as np
 import copy as cp
 from scnym.api import scnym_api
 
-#First, you need to convert RData data to h5ad data using conver_between_scanpy_seruta.R 
+#First, you need to convert RData data to h5ad data using conver_between_scanpy_seurat.R 
 # ,and save the h5ad data into dataset
 base='./dataset/'
 

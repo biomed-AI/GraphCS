@@ -1,9 +1,13 @@
 library(SeuratDisk)
 library(Seurat)
 
-if (!dir.exists('./dataset')){dir.create('./dataset')}
+if (!dir.exists('./dataset')){
+  dir.create('./dataset')
+  dir.create('./dataset/train')
+  dir.create('./dataset/test')
+}
 
-updatedata<-function(name,savepath='h5data'){
+updatedata<-function(name){
 	base="../../example_data/"
 	save_base="./dataset/"
 	
@@ -11,8 +15,8 @@ updatedata<-function(name,savepath='h5data'){
 	data=get(load(paste0(base, name, ".RData")))
 	
 	print(paste0('saving ',name))
-	train=paste0(save_base,savepath,'/train/',name,'.h5Seurat')
-	test=paste0(save_base,savepath,'/test/',name,'.h5Seurat')
+	train=paste0(save_base,'/train/',name,'.h5Seurat')
+	test=paste0(save_base,'/test/',name,'.h5Seurat')
 	
 	SaveH5Seurat(data[[1]], filename=train)
 	SaveH5Seurat(data[[2]], filename=test)
@@ -37,8 +41,18 @@ filename=c(
 	'Baron_mouse_Baron_human',
 	'Baron_human_Baron_mouse',
 	'mouse_brain',
-    sim
+  sim
 )
+fail=c()
 for(i in filename){
-	updatedata(i)
+  fit<-try(updatedata(i))
+  if('try-error' %in% class(fit)){
+    next
+  }else{
+    fail=c(fail,i)
+  }
+}
+if(length(fail)>0){
+  print('The following datasets failed to convert:')
+  print(fail)
 }
