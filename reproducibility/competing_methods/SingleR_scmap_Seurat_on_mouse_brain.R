@@ -4,6 +4,8 @@ func=list(Seurat3_PCA,singleR_ck,scmap_ck)
 filename='mouse_brain'
 savepath='../cross-platforms.csv'
 logpath="cross-platforms-bigdata.log"
+if (!dir.exists('log')){dir.create('log')}
+
 test<-function(filename,savepath,logpath,func,method){
     con <- file(paste0('./log/',method,'-',logpath))
     #sink(con,append = FALSE)

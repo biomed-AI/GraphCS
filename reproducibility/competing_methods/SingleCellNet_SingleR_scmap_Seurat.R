@@ -22,6 +22,8 @@ filename=list(
     ),
     sim
 )
+
+if (!dir.exists('log')){dir.create('log')}
 savepath=list('../cross-platforms.csv','../cross-species.csv','../simulate.csv')
 logpath=list("cross-platforms.log",'cross-species.log','simulate.log')
 test<-function(filename,savepath,logpath,func,method){
