@@ -175,7 +175,7 @@ def train():
 	activation_output = sess.run(model.activations, feed_dict=feed_dict_all)[1]
 	predict_output = sess.run(model.outputs, feed_dict=feed_dict_all)
        
-	base = "../../../visalization/scGCN/" 
+	base = "../../../umap_visalization/scGCN/" 
 	save_path=base+FLAGS.data_name
 	if not os.path.exists(save_path):
             os.mkdir(save_path)
