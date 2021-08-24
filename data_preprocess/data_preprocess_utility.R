@@ -85,10 +85,11 @@ pre_process <- function(count_list,label_list){
 
 
 
-save_processed_data <- function(count.list,label.list, data_name="example"){
+save_processed_data <- function(count.list,label.list, data_name="example", tpm_data=FALSE){
     print("begin pre_process_data \n")
     res1 <- pre_process(count_list=count.list,label_list=label.list)
 
+    count.list<- res1[[1]]
     norm.list <- res1[[2]];
     hvg.features <- res1[[3]]
 
@@ -109,6 +110,19 @@ save_processed_data <- function(count.list,label.list, data_name="example"){
         file.name=paste0(outputdir,'/norm_data/norm_data_',i,'.csv')
         write.csv(df,file=file.name,quote=F)
     }
+
+   if (tpm_data){
+    for (i in 1:N){
+        df = count.list[[i]]
+        # count to TPM
+       df = apply(df,2,function(x) (x*10^6)/sum(x))
+
+        if (!dir.exists(paste0(outputdir,'/tpm_data'))){dir.create(paste0(outputdir,'/tpm_data'))}
+        file.name=paste0(outputdir,'/tpm_data/tpm_data_',i,'.csv')
+        write.csv(df,file=file.name,quote=F)
+
+  } }
+
 
 }
 

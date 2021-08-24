@@ -35,7 +35,8 @@ get_data_from_seurat_obj_with_unique<-function(data_name){
 
 args=commandArgs(T)
 file_name=args[1]
-print(file_name)
+tpm_data=args[2]
+
 
 if (is.na(file_name)){
 
@@ -44,10 +45,23 @@ file_name="example"
 }
 
 
+ if (!is.na(tpm_data)&&tpm_data=="TRUE"){
+  
+  tpm_data=TRUE
+  
+  }else{
+     tpm_data=FALSE
+  }
+  
+  print(file_name)
+  print(tpm_data)
+
+
+
 #file_name="example"
 results=get_data_from_seurat_obj_with_unique(file_name)
 count.list=results$count
 label.list=results$label
-save_processed_data(count.list,label.list, file_name)
+save_processed_data(count.list,label.list, file_name, tpm_data=tpm_data)
 
 
