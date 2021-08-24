@@ -136,6 +136,7 @@ save_processed_data <- function(count.list,label.list, data_name="example"){
 
 
     #' save processed data to certain path: 'process_data'
+    dir.create("process_data")
     outputdir <- paste0('process_data/',data_name); dir.create(outputdir)
     write.csv(hvg.features,file=paste0(outputdir,'/sel_features.csv'),quote=F,row.names=F)
 

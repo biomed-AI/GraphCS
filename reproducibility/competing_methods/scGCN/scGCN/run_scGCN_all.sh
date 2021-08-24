@@ -1,4 +1,8 @@
 #!bin/sh
+
+# normalized datasets
+Rscript data_preprocess.R
+
 dataset1=(
 'pbmcsca_10x_Chromium_CEL-Seq2'
 'pbmcsca_10x_Chromium_Drop-seq'
