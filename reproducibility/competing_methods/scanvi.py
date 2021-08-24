@@ -18,13 +18,16 @@ import numpy as np
 from pytorch_lightning.callbacks import LearningRateMonitor
 from scipy.sparse import csr_matrix
 from torch.nn import Softplus
+
+
+ #First, you need to convert RData data to h5ad data using conver_between_scanpy_seurat.R 
+ # ,and save the h5ad data into dataset
+
+
 EPOCHES=15
-
-#First, you need to convert RData data to h5ad data using conver_between_scanpy_seruta.R 
-# ,and save the h5ad data into dataset
-
 base='./dataset/'
-def proc_data(adata,key='CellType'):
+def proc_data(dataset,key='CellType'):
+    adata=dataset.copy()
     adata.layers["counts"] = adata.X.copy()
     sc.pp.normalize_total(adata, target_sum=1e4)
     sc.pp.log1p(adata)
@@ -36,8 +39,6 @@ def main(dataname,bigdata):
     testset=sc.read_h5ad(base+'/test/%s.h5ad'%(dataname))
     label=testset.obs['CellType'].copy()
     testset.obs['CellType']=trainset.obs['CellType'][0]
-    adata1=proc_data(trainset)
-    adata2=proc_data(testset)
     if bigdata:
         config={}
         config['max_epochs']=200
@@ -48,6 +49,8 @@ def main(dataname,bigdata):
         config={'max_epochs':EPOCHES}
     while True:
         try:
+            adata1=proc_data(trainset)
+            adata2=proc_data(testset)
             model=SCANVI(adata1.copy(),'Unk')
             model.train(**config, check_val_every_n_epoch=1)
             break
@@ -102,17 +105,22 @@ if __name__=='__main__':
     savebase=['../cross-platforms.csv','../cross-species.csv','../simulate.csv']
     parser = argparse.ArgumentParser()
     parser.add_argument('--epoches', type=int, default=15, help='number of epochs.')
-    parser.add_argument('--data_sets', type=list, default=[0,1,2], help='0: cross-platforms  1: cross-species  2: simulated')
+    parser.add_argument('--data_sets', type=list, default=[0,1,2], help='0: cross-platforms  1: cross-species  2: simulated default: 012')
     parser.add_argument('--data_name', type=str, default=None, help='if specified, run the input dataset')
+    parser.add_argument('--write', default=True, help='write to csv.')
+    
     args = parser.parse_args()
     EPOCHES=args.epoches
+    args.write=args.write!='False'
+    print(args)
     res={}
-    if args.data_name:
+    if args.data_name is not None:
         print('---------------------------------')
-        print('loading file %s'%(i))
+        print('loading file %s'%(args.data_name))
         acc=main(args.data_name,args.data_name=='mouse_brain')
         print('accuracy of '+args.data_name+' is %.4f'%(acc))
     else:
+        args.data_sets=map(int,args.data_sets)
         for i in args.data_sets:
             ACC=scanvi_test(filename[i])
             ACC=np.array(ACC)
@@ -121,11 +129,10 @@ if __name__=='__main__':
                 std=pd.read_csv('../simulate-std.csv',header=0,index_col=0)
                 std.loc['scANVI']=np.std(ACC,1)
                 std.to_csv('../simulate-std.csv')
-                print('std: ',np.std(ACC,1))
                 ACC=ACC.mean(1).reshape(-1)
-            print(ACC)
-            res[j[3:-4]]=ACC
-            result=pd.read_csv(savebase[i],header=0,index_col=0)
-            result.loc['scANVI']=ACC
-            result.to_csv(savebase[i])
+            res[savebase[i][3:-4]]=ACC.round(3)
+            if args.write:
+                result=pd.read_csv(savebase[i],header=0,index_col=0)
+                result.loc['scANVI']=ACC
+                result.to_csv(savebase[i])
         print(res)

@@ -9,10 +9,10 @@ import numpy as np
 import copy as cp
 from scnym.api import scnym_api
 
-#First, you need to convert RData data to h5ad data using conver_between_scanpy_seurat.R 
-# ,and save the h5ad data into dataset
-base='./dataset/'
+ #First, you need to convert RData data to h5ad data using conver_between_scanpy_seurat.R 
+  # ,and save the h5ad data into dataset
 
+base='./dataset'
 def main(dataname,bigdata=False):
     trainset=sc.read_h5ad(base+'/train/%s.h5ad'%(dataname))
     testset=sc.read_h5ad(base+'/test/%s.h5ad'%(dataname))
@@ -28,7 +28,7 @@ def main(dataname,bigdata=False):
     while True:
         try:
             scnym_api(
-                adata=trainset,
+                adata=trainset.copy(),
                 task='train',
                 groupby='CellType',
                 out_path='./model/',
@@ -84,16 +84,20 @@ if __name__=='__main__':
     ]
     savebase=['../cross-platforms.csv','../cross-species.csv','../simulate.csv']
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data_sets', type=list, default=[0,1,2], help='0: cross-platforms  1: cross-species  2: simulated')
+    parser.add_argument('--data_sets', type=list, default=[1,2,0], help='0: cross-platforms  1: cross-species  2: simulated  default: 120')
     parser.add_argument('--data_name', type=str, default=None, help='if specified, run the input dataset')
+    parser.add_argument('--write', default=True, help='write to csv.')
+    
     args = parser.parse_args()
+    args.write=args.write!='False'
     res={}
-    if args.data_name:
+    if args.data_name is not None:
         print('---------------------------------')
-        print('loading file %s'%(i))
+        print('loading file %s'%(args.data_name))
         acc=main(args.data_name,args.data_name=='mouse_brain')
         print('accuracy of '+args.data_name+' is %.4f'%(acc))
-    else:                    
+    else:
+        args.data_sets=[int(i) for i in args.data_sets]
         for i in args.data_sets:
             ACC=scnym_test(filename[i])
             ACC=np.array(ACC)
@@ -103,9 +107,9 @@ if __name__=='__main__':
                 std.loc['scNym']=np.std(ACC,1)
                 std.to_csv('../simulate-std.csv')
                 ACC=ACC.mean(1).reshape(-1)
-            print(ACC)
-            res[j[3:-4]]=ACC
-            result=pd.read_csv(savebase[i],header=0,index_col=0)
-            result.loc['scNym']=ACC
-            result.to_csv(savebase[i])
+            res[savebase[i][3:-4]]=ACC.round(3)
+            if args.write:
+                result=pd.read_csv(savebase[i],header=0,index_col=0)
+                result.loc['scNym']=ACC
+                result.to_csv(savebase[i])
         print(res)

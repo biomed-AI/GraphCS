@@ -43,16 +43,6 @@ filename=c(
 	'mouse_brain',
   sim
 )
-fail=c()
 for(i in filename){
-  fit<-try(updatedata(i))
-  if('try-error' %in% class(fit)){
-    next
-  }else{
-    fail=c(fail,i)
-  }
-}
-if(length(fail)>0){
-  print('The following datasets failed to convert:')
-  print(fail)
+  updatedata(i)
 }
