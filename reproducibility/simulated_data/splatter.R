@@ -49,7 +49,7 @@ generate<-function(de.facScale, batch.facLoc,index)
     num_batches = length(num_cells)
     num_clusters = length(group_prob)
 
-    save_path="./"
+    save_path="../../example_data/"
 
 
     params <- newSplatParams()
@@ -60,13 +60,13 @@ generate<-function(de.facScale, batch.facLoc,index)
     de.facScale=de.facScale)
 
     save_name=paste0("splatter_",batch1_num,"_", batch2_num,"_", num_clusters,"_batch.facScale", batch.facLoc,"_de.facScale",de.facScale,"_10000_",index)
-    tpm_dir_path=paste0("../../process_data/",save_name)
-    tpm_data_path=paste0("../../process_data/",save_name,"/tpm_data/")
-    dir.create(tpm_dir_path)
-    dir.create(tpm_data_path)
-    tpm_label_path=paste0("../../data/",save_name,"/")
-    dir.create(tpm_label_path)
-    print("over create dir\n")
+    #tpm_dir_path=paste0("../../process_data/",save_name)
+    #tpm_data_path=paste0("../../process_data/",save_name,"/tpm_data/")
+    #dir.create(tpm_dir_path)
+    #dir.create(tpm_data_path)
+    #tpm_label_path=paste0("../../data/",save_name,"/")
+    #dir.create(tpm_label_path)
+    #print("over create dir\n")
 
     dat = counts(simulated_data)
     print("over counts")
@@ -85,25 +85,25 @@ generate<-function(de.facScale, batch.facLoc,index)
     cell[idx2], save_path=save_path, save_query_name=save_name, Batch_1='Batch_1', Batch_2='Batch_2')
 
     # count to TPM
-    dat = apply(dat,2,function(x) (x*10^6)/sum(x))
-    #save data
-    
-    print("begin save tpm  data\n")
-    batch_1_data <- rbind(cell_labels = cell[idx1], dat[,idx1])
-    write.table(batch_1_data, file =paste0(tpm_data_path, "tpm_data_1.csv"), sep = ",", quote = F, col.names = F, row.names = T)
-
-    batch_2_data <- rbind(cell_labels = cell[idx2], dat[,idx2])
-    write.table(batch_2_data, file = paste0(tpm_data_path,"tpm_data_2.csv"), sep = ",", quote = F, col.names = F, row.names = T)
-   
-    #save label
-    batch1_labels = data.frame(cell[idx1])
-    colnames(batch1_labels) = c("train_label")
-
-    batch2_labels = data.frame(cell[idx2])
-    colnames(batch2_labels) = c("test_label")
-
-    write.table(batch1_labels,paste0(tpm_label_path, "Label1.csv"), sep = ",", quote = F, col.names = T, row.names = F)
-    write.table(batch2_labels,paste0(tpm_label_path, "Label2.csv"), sep = ",", quote = F, col.names = T, row.names = F)
+#    dat = apply(dat,2,function(x) (x*10^6)/sum(x))
+#    #save data
+#    
+#    print("begin save tpm  data\n")
+#    batch_1_data <- rbind(cell_labels = cell[idx1], dat[,idx1])
+#    write.table(batch_1_data, file =paste0(tpm_data_path, "tpm_data_1.csv"), sep = ",", quote = F, col.names = F, row.names = T)
+#
+#    batch_2_data <- rbind(cell_labels = cell[idx2], dat[,idx2])
+#    write.table(batch_2_data, file = paste0(tpm_data_path,"tpm_data_2.csv"), sep = ",", quote = F, col.names = F, row.names = T)
+#   
+#    #save label
+#    batch1_labels = data.frame(cell[idx1])
+#    colnames(batch1_labels) = c("train_label")
+#
+#    batch2_labels = data.frame(cell[idx2])
+#    colnames(batch2_labels) = c("test_label")
+#
+#    write.table(batch1_labels,paste0(tpm_label_path, "Label1.csv"), sep = ",", quote = F, col.names = T, row.names = F)
+#    write.table(batch2_labels,paste0(tpm_label_path, "Label2.csv"), sep = ",", quote = F, col.names = T, row.names = F)
     print("over splatter")
 }
 
