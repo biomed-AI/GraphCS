@@ -67,8 +67,10 @@ python -u train.py --data Baron_segerstolpe_example.ref
  You can download the other Preprocessed  example data from the [website](https://drive.google.com/drive/folders/18usNrDU6CS0Ydxc7zei8bTgLHQ2RV-G2?usp=sharing), and put them into the `data` folder. Then you can follow the above command to train GraphCS and predict cell types directly. 
 
 
-Other datasets used in this paper saved in this [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing), you can download them and put them into 
-folder `example_data`
+## Reproduction instructions
+
+Other raw datasets (RData format) used in this paper are saved on this [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing). You can download them and put them into the folder `example_data` to reproduce the results reported in this paper. On the other hand, For Python-based competing methods, you can use the function `convert_between_scanpy_seurat.R` in the folder `reproducibility/competing_methods/` to convert RData type into h5ad type. 
+
 
 
 ## output
