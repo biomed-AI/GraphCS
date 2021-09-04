@@ -2,7 +2,7 @@
 # Requirements
 - Operating system 
 
-  Ubuntu 16.04.7 LTS 
+  **Ubuntu 16.04.7 LTS** 
   
   Kernel version4.4.0-189-generic
 
@@ -12,9 +12,9 @@
 - GCC 5.4.0
 - [cnpy](https://github.com/rogersce/cnpy)
 - [swig-4.0.1](https://github.com/swig/swig)
-- BBKNN 1.4.0
+- **BBKNN 1.4.0**
 - leidenalg 0.8.3
-- Scanpy 1.8.1
+- **Scanpy 1.8.1**
 - scrattch.io 0.1.0
 - Seurat 3.1.5
 
@@ -74,7 +74,7 @@ The above datasets also can be downloaded from Synapse with ID [syn26147749](htt
 You can obtain the accuracy of GraphCS on simulated, cross-platform,
  and cross-species datasets by run the following commands.
  
-Note: You can choose one of the following two strategies to obtain results of GraphCS on real datasets.  
+Note: You can choose one of the following three strategies to obtain results of GraphCS on real datasets.  
 
 ### Running GraphCS on preprocessed datasets
 `run_cross-platforms_normalized.sh` contains commands to run all preprocessed 
@@ -100,6 +100,16 @@ or
  bash run_cross-species.sh
  bash run_simulate.sh
 ```
+
+
+or 
+
+### Running GraphCS by a single command
+
+you can follow the step as described in **Run the demo** at [README.md](https://github.com/biomed-AI/GraphCS)
+to evaluate the performance of GraphCS on simulated, cross-platform, and cross-species datasets.
+
+
 
 
 
