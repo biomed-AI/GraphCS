@@ -52,12 +52,10 @@
 
   
 # Download datasets
-Note: If you want to run the bash scripts of GraphCS (such as `run_cross-species.sh` or 
-`run_cross-species_normalized.sh`)  or R scripts of competing methods,  you must download the corresponding 
-datasets that the script needed.  Thus, we suggest downloaded all datasets before reproducing results.
+**Note: If you want to run the bash scripts of GraphCS (such as [run_cross-species.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-species.sh) or 
+[run_cross-species_normalized.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-species_normalized.sh))  or R scripts of competing methods (such as [cellid.R](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/competing_methods/cellid.R)),  you must download the corresponding datasets contained in scripts.  Thus, we suggest downloading all datasets as following links before reproducing results.
  On the other hand, 
-you can revise dataset names in scripts to only run the partial datasets that have been downloaded. 
-
+you can revise dataset names in scripts to only run the partial datasets that have been downloaded.**
  
  
 ## Raw datasets:
