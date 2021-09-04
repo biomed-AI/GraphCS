@@ -106,7 +106,7 @@ or
 
 ### Running GraphCS by a single command
 
-you can follow the step as described in **Run the demo** at [README.md](https://github.com/biomed-AI/GraphCS)
+You can follow the step as described in `Run the demo` at [README.md](https://github.com/biomed-AI/GraphCS)
 to evaluate the performance of GraphCS on simulated, cross-platform, and cross-species datasets.
 
 
@@ -176,7 +176,7 @@ Rscript SingleCellNet_SingleR_scmap_Seurat.R
 ####  scanvi and scNym:
 
 Before running scanvi and scNym, you should run the script `convert_between_scanpy_seurat.R`
-to convert the ".RData" type of datasets to ".h5ad" type.
+(in folder `competing_methods`) to convert the ".RData" type of datasets to ".h5ad" type.
 
 ```
 Rscript convert_between_scanpy_seurat.R
