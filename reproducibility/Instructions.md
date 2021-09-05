@@ -58,20 +58,20 @@ which slightly changes under different operating environments.**
 
   
 # Download datasets
-**Note: If you want to run the bash scripts of GraphCS (such as [run_cross-species.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-species.sh) or 
-[run_cross-species_normalized.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-species_normalized.sh))  or R scripts of competing methods (such as [cellid.R](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/competing_methods/cellid.R)),  you must download the corresponding datasets contained in scripts.  Thus, we suggest downloading all datasets as following links before reproducing results.
+**Note: If you want to run the bash scripts of GraphCS (such as [run_cross-platforms.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms.sh) or 
+[run_cross-platforms_normalized.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms_normalized.sh))  or R scripts of competing methods (such as [cellid.R](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/competing_methods/cellid.R)),  you must download the corresponding datasets contained in scripts.  Thus, we suggest downloading all datasets as following links before reproducing results.
  On the other hand, 
 you can revise dataset names in scripts to only run the partial datasets that have been downloaded.**
  
  
 ## Raw datasets:
 You can downloaded raw datasets from
- [here](https://drive.google.com/drive/folders/1nNPUaJ91upcGvg08AZlIaebNCxtyAbAd?usp=sharing), 
+ [here](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharingv), 
 and place them into folder [example_data](https://github.com/biomed-AI/GraphCS/tree/main/example_data).  
 
 ## Preprocessed datasets:
 You can download the preprocessed datasets and the graph txt files from
- [here](https://drive.google.com/file/d/1H0XXXAlpzIS9GOMC3S-aP4Dq7JS-ehM1/view?usp=sharing),
+ [here](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing),
  and place them into the folder [data](https://github.com/biomed-AI/GraphCS/tree/main/data). 
 
 
@@ -88,7 +88,7 @@ You can obtain the accuracy of GraphCS on simulated, cross-platform,
 **Note: You can choose one of the following three strategies to obtain results of GraphCS on real datasets.**  
 
 ### Running GraphCS on preprocessed datasets
-`run_cross-platforms_normalized.sh` contains commands to run all preprocessed 
+[run_cross-platforms_normalized.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms_normalized.sh) contains commands to run all preprocessed 
 cross-platform datasets by GraphCS, where cross-platform datasets had been normalized by Seurat and
  the corresponding cell graphs had been constructed by BBKNN. Same for other scripts in this section. 
   
@@ -101,7 +101,7 @@ cross-platform datasets by GraphCS, where cross-platform datasets had been norma
 or 
 
 ### Running GraphCS on raw datasets
-`run_cross-platforms.sh` contains commands to run all raw cross-platform datasets by GraphCS,
+[run_cross-platforms.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms.sh) contains commands to run all raw cross-platform datasets by GraphCS,
  where cross-platform datasets needed to be normalized by Seurat and the corresponding cell
   graphs need to be constructed
  by BBKNN. All these procedures had been coded in  `run_cross-platforms.sh`.  Same for other scripts in this section. 
