@@ -71,9 +71,8 @@ and place them into folder [example_data](https://github.com/biomed-AI/GraphCS/t
 
 ## Preprocessed datasets:
 You can download the preprocessed datasets and the graph txt files from
- [here](https://drive.google.com/file/d/1H0XXXAlpzIS9GOMC3S-aP4Dq7JS-ehM1/view?usp=sharing)
- and the preprocessed mouse brain (big dataset) from [syn26147749](https://www.synapse.org/#!Synapse:syn26147749/files/).
- Then, you should place them into the folder [data](https://github.com/biomed-AI/GraphCS/tree/main/data). 
+ [here](https://drive.google.com/file/d/1H0XXXAlpzIS9GOMC3S-aP4Dq7JS-ehM1/view?usp=sharing),
+ and place them into the folder [data](https://github.com/biomed-AI/GraphCS/tree/main/data). 
 
 
 ## Other links
