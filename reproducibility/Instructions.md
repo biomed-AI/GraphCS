@@ -86,7 +86,7 @@ The above datasets also can be downloaded from Synapse with ID [syn26147749](htt
 You can obtain the accuracy of GraphCS on simulated, cross-platform,
  and cross-species datasets by run the following commands.
  
-Note: You can choose one of the following three strategies to obtain results of GraphCS on real datasets.  
+**Note: You can choose one of the following three strategies to obtain results of GraphCS on real datasets.**  
 
 ### Running GraphCS on preprocessed datasets
 `run_cross-platforms_normalized.sh` contains commands to run all preprocessed 
