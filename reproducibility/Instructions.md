@@ -59,13 +59,13 @@ which slightly changes under different operating environments.**
   
 # Download datasets
 **Note: If you want to run the bash scripts of GraphCS (such as [run_cross-platforms.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms.sh) or 
-[run_cross-platforms_normalized.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms_normalized.sh))  or R scripts of competing methods (such as [cellid.R](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/competing_methods/cellid.R)),  you must download the corresponding datasets contained in scripts.  Thus, we suggest downloading all datasets as following links before reproducing results.
+[run_cross-platforms_normalized.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms_normalized.sh))  or R scripts of competing methods (such as [cellid.R](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/competing_methods/cellid.R)),  you must download the corresponding datasets included in scripts.  Thus, we suggest downloading all datasets as following links before reproducing results.
  On the other hand, 
 you can revise dataset names in scripts to only run the partial datasets that have been downloaded.**
  
  
 ## Raw datasets:
-You can downloaded raw datasets from
+You can download raw datasets from
  [here](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharingv), 
 and place them into folder [example_data](https://github.com/biomed-AI/GraphCS/tree/main/example_data).  
 
@@ -83,7 +83,7 @@ The above datasets also can be downloaded from Synapse with ID [syn26147749](htt
 
 ## GraphCS (our method)
 You can obtain the accuracy of GraphCS on simulated, cross-platform,
- and cross-species datasets by run the following commands.
+ and cross-species datasets by running the following commands.
  
 **Note: You can choose one of the following three strategies to obtain results of GraphCS on real datasets.**  
 
@@ -101,9 +101,10 @@ cross-platform datasets by GraphCS, where cross-platform datasets had been norma
 or 
 
 ### Running GraphCS on raw datasets
-[run_cross-platforms.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms.sh) contains commands to run all raw cross-platform datasets by GraphCS,
- where cross-platform datasets needed to be normalized by Seurat and the corresponding cell
-  graphs need to be constructed
+[run_cross-platforms.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms.sh) contains
+ commands to run all raw cross-platform datasets by GraphCS,
+ where cross-platform datasets are needed to be normalized by Seurat and the corresponding cell
+  graphs are  needed to be constructed
  by BBKNN. All these procedures had been coded in  `run_cross-platforms.sh`.  Same for other scripts in this section. 
 
 ```
@@ -119,6 +120,11 @@ or
 
 You can follow the step as described in `Run the demo` at [README.md](https://github.com/biomed-AI/GraphCS)
 to evaluate the performance of GraphCS on simulated, cross-platform, and cross-species datasets.
+Note: you can refer to the parameters used in scripts
+ ([run_cross-platforms.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms.sh),
+  [run_cross-species.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-species.sh), 
+  [run_simulate.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_simulate.sh)) 
+ when running each dataset separately. 
 
 
 
@@ -148,9 +154,8 @@ python get_raw_data_embedding.py
 Rscript get_seurat_embedding.R
 
 # The embedding of scGCN will be saved in folder scGCN when running the scGCN on cross-species 
-datasets. We have added the saving codes into train.py of scGCN to save the embedding in scGCN.
- You can run
-scGCN as described in `Reproduce results` to embeddings.  
+datasets. We have added the saving codes into train.py of scGCN to save the embeddings in scGCN.
+ You can run scGCN as described in `Reproduce results` to obtain embeddings.  
 
 # plot the Umap graph
 python plot_umap.py
