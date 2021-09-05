@@ -5,18 +5,24 @@
   **Ubuntu 16.04.7 LTS** 
   
   Kernel version4.4.0-189-generic
-
+  
+- **BBKNN 1.4.0**
+- **Scanpy 1.8.1**
 - CUDA 10.2.89
 - Python 3.7.9
 - Pytorch 1.7.0
 - GCC 5.4.0
 - [cnpy](https://github.com/rogersce/cnpy)
 - [swig-4.0.1](https://github.com/swig/swig)
-- **BBKNN 1.4.0**
+
 - leidenalg 0.8.3
-- **Scanpy 1.8.1**
 - scrattch.io 0.1.0
 - Seurat 3.1.5
+
+
+**Note: All results have been obtained under Ubuntu 16.04.7 LTS. We have also noticed that the BBKNN 1.4.0 
+used in our method has constructed approximate nearest neighbors based on the Annoy algorithm, 
+which slightly changes under different operating environments.**
 
 
 # Overall 
@@ -120,7 +126,7 @@ to evaluate the performance of GraphCS on simulated, cross-platform, and cross-s
 
 ### Ablation experiments for GraphCS
 
-We conduct the ablation experiments in folder `ablation`. You can follow the `readme.txt` 
+We conduct the ablation experiments in folder `ablation`. You can follow the `ablation_instructions.txt` 
 in folder `ablation`
  or the instructions in Fig4ablation.ipynb to obtain results of ablation experiments.
 

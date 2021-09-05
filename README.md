@@ -21,15 +21,28 @@ cross-species scRNA-seq datasets. More importantly, our model can achieve superi
 
 
 ## Requirements
-- CUDA 10.1.243
-- python 3.6.10
-- pytorch 1.4.0
+- Operating system 
+
+  **Ubuntu 16.04.7 LTS** 
+  
+  Kernel version4.4.0-189-generic
+  
+- **BBKNN 1.4.0**
+- **Scanpy 1.8.1**
+- CUDA 10.2.89
+- Python 3.7.9
+- Pytorch 1.7.0
 - GCC 5.4.0
 - [cnpy](https://github.com/rogersce/cnpy)
 - [swig-4.0.1](https://github.com/swig/swig)
-- BBKNN
-- Scanpy
-- scrattch.io
+- leidenalg 0.8.3
+- scrattch.io 0.1.0
+- Seurat 3.1.5v
+
+
+**Note: All results have been obtained under Ubuntu 16.04.7 LTS. We have also noticed that the BBKNN 1.4.0 
+used in our method has constructed approximate nearest neighbors based on the Annoy algorithm, 
+which slightly changes under different operating environments.**
 
 
 ## Compilation
@@ -69,7 +82,7 @@ python -u train.py --data Baron_segerstolpe_example.ref
 
 ## Reproduction instructions
 
-Other raw datasets (RData format) used in this paper are saved on this [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing). You can download them and put them into the folder `example_data` to reproduce the results reported in this paper. On the other hand, For Python-based competing methods, you can use the function `convert_between_scanpy_seurat.R` in the folder `reproducibility/competing_methods/` to convert RData type into h5ad type. 
+All raw datasets (RData format) used in this paper were saved on here [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing). You can download them and put them into the folder `example_data` to reproduce the results reported in this paper. On the other hand, For Python-based competing methods, you can use the function `convert_between_scanpy_seurat.R` in the folder `reproducibility/competing_methods/` to convert RData type into h5ad type. 
 
 
 
