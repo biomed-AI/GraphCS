@@ -37,7 +37,7 @@ cross-species scRNA-seq datasets. More importantly, our model can achieve superi
 - [swig-4.0.1](https://github.com/swig/swig)
 - leidenalg 0.8.3
 - scrattch.io 0.1.0
-- Seurat 3.1.5v
+- Seurat 3.1.5
 
 
 **Note: All results have been obtained under Ubuntu 16.04.7 LTS. We have also noticed that the BBKNN 1.4.0 
@@ -77,7 +77,7 @@ The `data` folder includes the Preprocessed  example data.
 python -u train.py --data Baron_segerstolpe_example.ref
 ```
 
- You can download the other Preprocessed  example data from the [website](https://drive.google.com/drive/folders/18usNrDU6CS0Ydxc7zei8bTgLHQ2RV-G2?usp=sharing), and put them into the `data` folder. Then you can follow the above command to train GraphCS and predict cell types directly. 
+ You can download the other Preprocessed  example data from the [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing), and put them into the `data` folder. Then you can follow the above command to train GraphCS and predict cell types directly. 
 
 
 ## Reproduction instructions
