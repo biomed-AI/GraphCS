@@ -71,8 +71,8 @@ run_save_serurat_data_from_seurat_obj<-function(data_name){
     save_two_data_to_seurat_obj(train_data, query_data, train_cell_type, query_cell_type, save_path=save_path, save_query_name=save_name)
 }
 
-
-# We use this script to remove the cells that are in the query dataset but not in the reference dataset.
-# For the format of the original dataset, you can refer to the datasets in folder example_data in GraphCS project.
-data_name="Baron_mouse_Baron_human_origin" # you can replace the other reference-query datasets.
+ print("This script is used for  removing the cell types that are in the query dataset but not in the reference dataset")
+# We use this script to remove the cell types that are in the query dataset but not in the reference dataset.
+# For the format of the dataset, you can refer to the datasets in folder example_data in GraphCS project.
+data_name="Baron_mouse_Baron_human" # you can replace the other reference-query datasets.
 run_save_serurat_data_from_seurat_obj(data_name)
