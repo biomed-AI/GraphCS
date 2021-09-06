@@ -8,14 +8,13 @@
   
 - **BBKNN 1.4.0**
 - **Scanpy 1.8.1**
+- leidenalg 0.8.3
 - CUDA 10.2.89
 - Python 3.7.9
 - Pytorch 1.7.0
 - GCC 5.4.0
 - [cnpy](https://github.com/rogersce/cnpy)
 - [swig-4.0.1](https://github.com/swig/swig)
-
-- leidenalg 0.8.3
 - scrattch.io 0.1.0
 - Seurat 3.1.5
 
