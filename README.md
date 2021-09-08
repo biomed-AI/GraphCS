@@ -42,7 +42,8 @@ cross-species scRNA-seq datasets. More importantly, our model can achieve superi
 
 **Note: All results have been obtained under Ubuntu 16.04.7 LTS. We have also noticed that the BBKNN 1.4.0 
 used in our method has constructed approximate nearest neighbors based on the Annoy algorithm, 
-which slightly changes under different operating environments.**
+which slightly changes under different operating environments. To obtain the same results with us, 
+we recommend installing GCC 5.4.0 firstly before installing BBKNN 1.4.0.**
 
 
 ## Compilation
