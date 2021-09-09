@@ -31,24 +31,52 @@ def bbknn_construct_graph(datastr_name, data, index1, index2):
 
     cell_count=adata.obsp['connectivities'].shape[0]
     graph_mtx=adata.obsp['connectivities'].tocoo()
-    f = open("../data/" + datastr_name + ".txt", 'w')
-    f.write('{}\n'.format(cell_count))
     rows=graph_mtx.row
     cols=graph_mtx.col
     ratio_value = graph_mtx.data
 
+    f = open("../data/" + datastr_name + ".txt", 'w')
+    f.write('{}\n'.format(cell_count))
+
+    inter_edge_num = 0
+    inter_ratio = []
     for index, value in enumerate(rows):
         if value < index1 and cols[index] < index1:
            f.write('{} {}\n'.format(value, cols[index]))
         elif value > index1 and cols[index] > index1:
             f.write('{} {}\n'.format(value, cols[index]))
         else:
+            inter_ratio.append(ratio_value[index])
             if ratio_value[index]>0.4: # trim the edges between datasets
                 f.write('{} {}\n'.format(value, cols[index]))
+                inter_edge_num += 1
 
     for index in range(cell_count):
         f.write('{} {}\n'.format(index, index))
     f.close()
+
+
+    # To make BBKNN compatible with different operating systems
+    times = 3
+    if inter_edge_num < max(index1, index2):
+        f = open("../data/" + datastr_name + ".txt", 'w')
+        f.write('{}\n'.format(cell_count))
+
+        inter_ratio.sort(reverse=True)
+        ratio = inter_ratio[min(times * max(index1, index2), len(inter_ratio) - 1)]
+
+        for index, value in enumerate(rows):
+            if value < index1 and cols[index] < index1:
+                f.write('{} {}\n'.format(value, cols[index]))
+            elif value > index1 and cols[index] > index1:
+                f.write('{} {}\n'.format(value, cols[index]))
+            else:
+                if ratio_value[index] > ratio:  # trim the edges between datasets
+                    f.write('{} {}\n'.format(value, cols[index]))
+
+        for index in range(cell_count):
+            f.write('{} {}\n'.format(index, index))
+        f.close()
 
 
 def convert_data_graph_construction(name):
