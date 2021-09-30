@@ -85,7 +85,7 @@ pre_process <- function(count_list,label_list){
 
 
 
-save_processed_data <- function(count.list,label.list, data_name="example", tpm_data=FALSE){
+save_processed_data <- function(count.list,label.list,batch_info, data_name="example", tpm_data=FALSE){
     print("begin pre_process_data \n")
     res1 <- pre_process(count_list=count.list,label_list=label.list)
 
@@ -96,7 +96,10 @@ save_processed_data <- function(count.list,label.list, data_name="example", tpm_
     dir.create(paste0('../data/', data_name))
     write.csv(label.list[[1]],file=paste0('../data/', data_name, '/Label1.csv'),quote=F,row.names=F)
     write.csv(label.list[[2]],file=paste0('../data/', data_name, '/Label2.csv'),quote=F,row.names=F)
-
+    printer = file(paste0('../data/', data_name, '/batch_info.txt'),"w")
+    writeLines(as.character(batch_info),con=printer,sep=' ')
+    close(printer)
+   
     #' save processed data to certain path: 'process_data'
     dir.create('../process_data')
     outputdir <- paste0('../process_data/',data_name); dir.create(outputdir)
@@ -125,7 +128,6 @@ save_processed_data <- function(count.list,label.list, data_name="example", tpm_
 
 
 }
-
 
 
 

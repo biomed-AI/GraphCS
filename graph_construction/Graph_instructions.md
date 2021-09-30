@@ -21,14 +21,16 @@ python graph.py --name filename
 
 ### Consturcing cell graph based on big datasets
 
+# parameter large_data represents that the input is big data mouse_brain
+
 Since the normalized big datasets were saved in h5 format, we read data from the `.h5` format to generate the cell graph. 
 
 ```
-python graph_for_big_data.py --name filename
+python graph.py --name filename  --large_data T
 
 ```
 
-
+**Note: edge_ratio is used for trimming the inter-edges between batches. In default, we set edge_ratio=2. We also listed detailed parameters used in this paper in supplementary table S2.  **
 
 
 
