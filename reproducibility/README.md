@@ -87,7 +87,7 @@ You can obtain the accuracy of GraphCS on simulated, cross-platform,
  
 **Note: You can choose one of the following three strategies to obtain results of GraphCS on real datasets.**  
 
-### Running GraphCS on preprocessed datasets
+### Running GraphCS on preprocessed datasets with a bash script
 [run_cross-platforms_normalized.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms_normalized.sh) contains commands to run all preprocessed 
 cross-platform datasets by GraphCS, where cross-platform datasets had been normalized by Seurat and
  the corresponding cell graphs had been constructed by BBKNN. Same for other scripts in this section. 
@@ -100,7 +100,7 @@ cross-platform datasets by GraphCS, where cross-platform datasets had been norma
 
 or 
 
-### Running GraphCS on raw datasets
+### Running GraphCS on raw datasets with a bash script
 [run_cross-platforms.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms.sh) contains
  commands to run all raw cross-platform datasets by GraphCS,
  where cross-platform datasets are needed to be normalized by Seurat and the corresponding cell
@@ -117,16 +117,38 @@ or
 or 
 
 ### Running GraphCS by a single command
+Note: The detailed parameters are listed in Supplementary Table S2. 
 
-You can follow the step as described in `Run the demo` at [README.md](https://github.com/biomed-AI/GraphCS)
-to evaluate the performance of GraphCS on simulated, cross-platform, and cross-species datasets.
-Note: you can refer to the parameters used in scripts
- ([run_cross-platforms.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-platforms.sh),
-  [run_cross-species.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_cross-species.sh), 
-  [run_simulate.sh](https://github.com/biomed-AI/GraphCS/blob/main/reproducibility/run_simulate.sh)) 
- when running each dataset separately. 
+### run on preprocessed datasets
+
+python -u train.py --data  dataset_name --batch batch_size
 
 
+### run on the raw real datasets
+
+```
+- pre_process raw data: cd data_preprocess; Rscript data_preprocess.R example 
+- construct graph: cd graph_construction; python graph.py  --name example
+- python -u train.py --data example
+```
+
+
+### run on raw mouse brain (big dataset)
+we save mouse brain in h5 format due to huge storage space are needed. 
+```
+- pre_process raw data: cd data_preprocess; Rscript normalized_big_data.R
+- construct graph: cd graph_construction; python graph.py  --name example --large_data T
+- python -u train.py --data mouse_brain
+```
+
+
+### run on raw simulated datasets
+ 
+```
+- pre_process raw data: cd data_preprocess; Rscript data_preprocess.R siumlated_data_name TRUE
+- construct graph: cd graph_construction; python graph_for_simulated_data.py  --name siumlated_data_name 
+- python -u train.py --data mouse_brain
+```
 
 
 

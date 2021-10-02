@@ -47,15 +47,16 @@ we recommend installing GCC 5.4.0 firstly before installing BBKNN 1.4.0.**
 
 
 ## Compilation
+Execute the following command in the `folder` GraphCS (same dir with Makefile)
 ```bash
 make
 ```
 
-## Datasets
+## Dataset catalogue
 
-The `example_data` folder includes the raw example data. 
+The `example_data` folder includes the raw data. 
 
-The `data` folder includes the Preprocessed  example data.
+The `data` folder includes the preprocessed data.
 
 
 
@@ -73,17 +74,20 @@ The `data` folder includes the Preprocessed  example data.
 ### or
 
 ### run on the Preprocessed  example data
+we provide the preprocessed datasets, which had been normalized by Seurat and the corresponding cell graphs had been constructed by BBKNN.
+Thus, you can run the following command to get the predicted results directly.
 
 ```
 python -u train.py --data Baron_segerstolpe_example.ref
 ```
 
- You can download the other Preprocessed  example data from the [website](https://drive.google.com/drive/folders/18usNrDU6CS0Ydxc7zei8bTgLHQ2RV-G2?usp=sharing), and put them into the `data` folder. Then you can follow the above command to train GraphCS and predict cell types directly. 
+ You can download the other Preprocessed  example data from the [website](https://drive.google.com/file/d/1sbwIzzZ5n9-G3M1OqZGnfbIu_3MZXqKO/view?usp=sharing), and put them into the `data` folder. Then you can follow the above command to train GraphCS and predict cell types directly. 
 
 
 ## Reproduction instructions
 
-All raw datasets (RData format) used in this paper were saved on here [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing). You can download them and put them into the folder `example_data` to reproduce the results reported in this paper. On the other hand, For Python-based competing methods, you can use the function `convert_between_scanpy_seurat.R` in the folder `reproducibility/competing_methods/` to convert RData type into h5ad type. 
+**You can reproduce all results reported in this study following the README stored in folder `reproducibility`. **
+Note: All raw datasets (RData format) used in this paper were saved on here [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing). You can download them and put them into the folder `example_data` to reproduce the results reported in this paper. On the other hand, For Python-based competing methods, you can use the function `convert_between_scanpy_seurat.R` in the folder `reproducibility/competing_methods/` to convert RData type into h5ad type. 
 
 
 
@@ -97,6 +101,7 @@ The predicted cell labels will be stored in the dataname_pred.csv.
 
 
 # Runing your own data
+you can follow the format of the dataset example stored in the folder `example_data` to prepare your own dataset and put it into the folder `example_data`. Then, Execute the following commands.
 
 - pre_process raw data: cd data_preprocess; Rscript data_preprocess.R  your_data_name   
 - construct graph: cd graph_construction; python graph.py  --name your_data_name
