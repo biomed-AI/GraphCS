@@ -20,6 +20,8 @@ cross-species scRNA-seq datasets. More importantly, our model can achieve superi
 ![(Variational) gcn](Fig._1.jpg)
 
 
+Note: The docker version is on the way. 
+
 ## Requirements
 - Operating system 
 
@@ -44,6 +46,7 @@ cross-species scRNA-seq datasets. More importantly, our model can achieve superi
 used in our method has constructed approximate nearest neighbors based on the Annoy algorithm, 
 which slightly changes under different operating environments. To obtain the same results with us, 
 we recommend installing GCC 5.4.0 firstly before installing BBKNN 1.4.0.**
+
 
 
 ## Compilation
@@ -86,7 +89,7 @@ python -u train.py --data Baron_segerstolpe_example.ref
 
 ## Reproduction instructions
 
-**You can reproduce all results reported in this study following the README stored in folder `reproducibility`. **
+**You can reproduce all results reported in this study following the README stored in folder reproducibility. **
 Note: All raw datasets (RData format) used in this paper were saved on here [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing). You can download them and put them into the folder `example_data` to reproduce the results reported in this paper. On the other hand, For Python-based competing methods, you can use the function `convert_between_scanpy_seurat.R` in the folder `reproducibility/competing_methods/` to convert RData type into h5ad type. 
 
 

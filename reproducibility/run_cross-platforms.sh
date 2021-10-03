@@ -20,7 +20,12 @@ do
       python graph.py --name  $filename
       cd ..
 
-      python -u train.py  --data  $filename --savepath 0 --batch 1024
+      if [ $filename = "mouse_retina" ];then
+            python -u train.py  --data  $filename --savepath 0 --batch 4096
+      else
+            python -u train.py  --data  $filename --savepath 0 --batch 1024
+      fi
+
 done
 
 bigdata='mouse_brain'

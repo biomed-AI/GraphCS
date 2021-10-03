@@ -12,8 +12,13 @@ dataset1=(
 
 for filename in ${dataset1[*]}
 do
+	  if [ $filename = "mouse_retina" ];then
+            python -u train.py  --data  $filename --savepath 0 --batch 4096
+        else
+           python -u train.py  --data  $filename --savepath 0 --batch 1024
+       fi
 
-      python -u train.py  --data  $filename --savepath 0 --batch 1024
+	  
 done
 
 python -u train.py  --data mouse_brain  --savepath 0 --batch 4096 --patience 5
