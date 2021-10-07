@@ -1,9 +1,9 @@
-#download
+# download
 
 you need to download the docker image from: https://www.synapse.org/#!Synapse:syn26147749/files/
 
 
-#import
+# import
 - open a terminal named t1
 
 - `sudo docker load -i graphcs.tar`
@@ -14,11 +14,11 @@ you need to download the docker image from: https://www.synapse.org/#!Synapse:sy
 
     `sudo docker tag its-image-id graphcs:latest`
     
-#run
+# run
 - `sudo docker run --shm-size 20g -v absolute-dir-path-to-datasets:/home/biomed-ai/GraphCS/example_data -it graphcs /bin/bash`
 
 
-#test datasets
+# test datasets
 - open a new terminal named t2
 
 - `sudo docker ps -a` to get a CONTAINER_ID  
