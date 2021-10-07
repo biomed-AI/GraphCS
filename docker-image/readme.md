@@ -63,7 +63,7 @@ Note: if you load graphcs iamge successfully, you will get the following informa
 Note:
 - absolute-dir-path-to-data is the absolute path of data that downloaded from [data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing),
  for exmaple, '/home/data/'.
-- absolute-dir-path-to-data is the absolute path of example_data [data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing),
+- absolute-dir-path-to-data is the absolute path of example_data [example_data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing),
  for exmaple, '/home/example_data/'.
 
 If you run docker with graphcs image successfully, you will see the following information in terminal t1. 
