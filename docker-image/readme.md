@@ -104,7 +104,7 @@ commands (These scripts are stored in the directory of the same level as the gra
 3. Running in terminal t2:
 	sudo docker cp test.sh | start.sh CONTAINER_ID:/home/biomed-ai/GraphCS/ 
 	
-4. Then, you can run  run_graphcs_on_all_datasets.sh or single_dataset.sh in terminal t1 using following commands:
+4. Then, you can run  test.sh or start.sh in terminal t1 using following commands:
 	`bash    test.sh | start.sh`
 	
 Note: you can revise the dataset name in scripts test.sh or start.sh as your needed. 
