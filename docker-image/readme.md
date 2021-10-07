@@ -23,7 +23,7 @@ Installing Docker follows the official document.: https://docs.docker.com/engine
  
 ### download
 
-You need to download the graphcs docker image (graphcs.tgz) from [websit](https://www.synapse.org/#!Synapse:syn26147749/files/)
+You need to download the graphcs docker image (graphcs.tgz) from [website](https://www.synapse.org/#!Synapse:syn26147749/files/)
 
 
 
@@ -63,7 +63,7 @@ Note: if you load graphcs iamge successfully, you will get the following informa
 Note:
 - absolute-dir-path-to-data is the absolute path of data that downloaded from [data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing),
  for exmaple, '/home/data/'.
-- absolute-dir-path-to-data is the absolute path of example_data [example_data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing),
+- absolute-dir-path-to-example_data is the absolute path of example_data that downloaded from [example_data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing),
  for exmaple, '/home/example_data/'.
 
 If you run docker with graphcs image successfully, you will see the following information in terminal t1. 
