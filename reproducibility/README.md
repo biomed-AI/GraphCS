@@ -66,12 +66,12 @@ you can revise dataset names in scripts to only run the partial datasets that ha
  
 ## Raw datasets:
 You can download raw datasets from
- [here](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing), 
+ [exmaple_data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing), 
 and place them into folder [example_data](https://github.com/biomed-AI/GraphCS/tree/main/example_data).  
 
 ## Preprocessed datasets:
 You can download the preprocessed datasets and the graph txt files from
- [here](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing),
+ [data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing),
  and place them into the folder [data](https://github.com/biomed-AI/GraphCS/tree/main/data). 
 
 
