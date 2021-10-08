@@ -75,10 +75,6 @@ You can download the preprocessed datasets and the graph txt files from
  and place them into the folder [data](https://github.com/biomed-AI/GraphCS/tree/main/data). 
 
 
-## Other links
-The above datasets also can be downloaded from Synapse with ID [syn26147749](https://www.synapse.org/#!Synapse:syn26147749/files/)
-
-
 # Reproduce results
 
 ## GraphCS (our method)
