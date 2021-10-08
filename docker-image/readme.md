@@ -5,7 +5,7 @@ as following instructions:**
 
 # Setp1: Prepare your host computer
 
-We recommend using **Ubuntu operating system with version 21.04** as same as us. On the other hand,
+We recommend using **Ubuntu operating system with version 21.04** as same as us (We installed Ubuntu21.04 on a vmware workstation). On the other hand,
   you can also use other versions of the Ubuntu operating system or other operating systems(such as CentOS) as long as 
 you can install the Docker and load our graphcs docker image successfully.  
 
@@ -23,14 +23,14 @@ Installing Docker follows the official document.: https://docs.docker.com/engine
  
 ### download
 
-You need to download the graphcs docker image (graphcs.tgz) from [website](https://www.synapse.org/#!Synapse:syn26147749/files/)
+You need to download the graphcs docker image (graphcs.tar.zip) from [website](https://www.synapse.org/#!Synapse:syn26147749/files/)
 
 
 
 ### Import graphcs image into Docker as following commands: 
 1. open a terminal named t1
 
-2. tar -xzvf graphcs.tgz
+2. unzip  graphcs.tar.zip
 
 3. `sudo docker load -i graphcs.tar` (load the graphcs docker image)
 
@@ -83,7 +83,7 @@ python train.py --data dataset_name --batch batch_size
 
 ##  Scheme II
 
-Follow the instructions in the README [GraphCS](https://github.com/biomed-AI/GraphCS).
+Follow the instructions in the README [reproducibility](https://github.com/biomed-AI/GraphCS/tree/main/reproducibility).
 
 Note: you must execute all commands in terminal t1, which was entering the graphcs running environment. 
 
@@ -92,8 +92,8 @@ or
 
 
 ##  Scheme III 
-You can run GraphCS on all datasets using the script  **start.sh** 
-or on single dataset using script **test.sh**. You must copy them into the running  docker with  graphcs image as following 
+You can run GraphCS on all datasets using the script  **run_all_datasets.sh** 
+or on simulated dataset using script **run_simulate.sh**. You must copy them into the running  docker with  graphcs image as following 
 commands (These scripts are stored in the directory of the same level as the graphcs image):
 
 1. open a new terminal named t2
@@ -103,9 +103,9 @@ commands (These scripts are stored in the directory of the same level as the gra
 
 3. Running in terminal t2:
 copy scripts into docker
-	`sudo docker cp test.sh | start.sh CONTAINER_ID:/home/biomed-ai/GraphCS/`
+	`sudo docker cp run_all_datasets.sh | run_simulate.sh CONTAINER_ID:/home/biomed-ai/GraphCS/`
 	
 4. Then, you can run  test.sh or start.sh in terminal t1 using following commands:
-	`bash    test.sh | start.sh`
+	`bash    run_all_datasets.sh | run_simulate.sh`
 	
-Note: you can revise the dataset name in scripts test.sh or start.sh as your needed. 
+

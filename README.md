@@ -65,17 +65,6 @@ The `data` folder includes the preprocessed data.
 
 # Run the demo
 
-### run on the raw example data
-
-```
-- pre_process raw data: cd data_preprocess; Rscript data_preprocess.R example 
-- construct graph: cd graph_construction; python graph.py  --name example
-- python -u train.py --data example
-```
-
-
-### or
-
 ### run on the Preprocessed  example data
 we provide the preprocessed datasets, which had been normalized by Seurat and the corresponding cell graphs had been constructed by BBKNN.
 Thus, you can run the following command to get the predicted results directly.
@@ -85,6 +74,37 @@ python -u train.py --data Baron_segerstolpe_example.ref
 ```
 
  You can download the other Preprocessed  example data from the [website](https://drive.google.com/file/d/1sbwIzzZ5n9-G3M1OqZGnfbIu_3MZXqKO/view?usp=sharing), and put them into the `data` folder. Then you can follow the above command to train GraphCS and predict cell types directly. 
+
+
+### or
+
+
+### run on the raw example data
+
+```
+- pre_process raw data: cd data_preprocess; Rscript data_preprocess.R example 
+- construct graph: cd graph_construction; python graph.py  --name example
+- python -u train.py --data example
+```
+
+
+### run on raw mouse brain (big dataset)
+we save mouse brain in h5 format due to huge storage space are needed. 
+```
+- pre_process raw data: cd data_preprocess; Rscript normalized_big_data.R
+- construct graph: cd graph_construction; python graph.py  --name example --large_data T
+- python -u train.py --data mouse_brain
+```
+
+
+### run on raw simulated datasets
+ 
+```
+- pre_process raw data: cd data_preprocess; Rscript data_preprocess.R siumlated_data_name TRUE
+- construct graph: cd graph_construction; python graph_for_simulated_data.py  --name siumlated_data_name 
+- python -u train.py --data mouse_brain
+```
+
 
 
 ## Reproduction instructions
