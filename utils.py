@@ -39,6 +39,54 @@ def mutilabel_f1(y_true, y_pred):
     return f1_score(y_true, y_pred, average="micro")
 
 
+def accuracy_for_unkonw(output, labels, number_unkonw, cut_off_ratio=0):
+
+    total_konw_cells=len(labels)-number_unkonw
+    preds = output.max(1)[1].type_as(labels)
+
+    output_raito = F.softmax(output, dim=1).max(1)[0]
+    output_raito = output_raito.cpu().detach().numpy()
+    index = np.where(np.array(output_raito) > cut_off_ratio)
+
+    preds = preds.cpu().detach().numpy()
+    labels = labels.cpu().detach().numpy()
+
+    labels = labels[index]
+    preds = preds[index]
+
+    correct=sum(preds==labels)
+
+    print("correct, total_konw_cells: ", correct, total_konw_cells)
+    return correct / total_konw_cells
+
+
+def get_FPR(output, labels, unklonw_cell,FPR=0.05):
+
+    preds = output.max(1)[1]
+    preds = preds.cpu().detach().numpy()
+    labels = labels.cpu().detach().numpy()
+
+    # get the max probability
+    output_raito = F.softmax(output, dim=1).max(1)[0]
+    output_raito=output_raito.cpu().detach().numpy()
+
+    finally_result=[]
+    for cell in unklonw_cell:
+        print("unknown cell: ", cell)
+        # get the index of unkonw cells
+        type_index = np.where(labels == cell)
+
+        type_output=output_raito[type_index]
+        type_output_list = sorted(type_output, reverse=True)
+        finally_result.extend(type_output_list)
+
+    number_cells=len(finally_result)
+    cut_off_ratio=finally_result[int(number_cells*FPR)]
+
+    print("cut_off_ratio value: ", cut_off_ratio)
+    return cut_off_ratio, len(finally_result)
+
+
 def get_train_test_id(train_id, train_labels):
    trains=[]
    tests=[]
