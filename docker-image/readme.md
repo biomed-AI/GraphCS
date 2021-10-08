@@ -92,8 +92,8 @@ or
 
 
 ##  Scheme III 
-You can run GraphCS on all datasets using the script **test.sh**
-or on single dataset using script **start.sh**. You must copy them into the running  docker with  graphcs image as following 
+You can run GraphCS on all datasets using the script  **start.sh** 
+or on single dataset using script **test.sh**. You must copy them into the running  docker with  graphcs image as following 
 commands (These scripts are stored in the directory of the same level as the graphcs image):
 
 1. open a new terminal named t2
@@ -102,7 +102,8 @@ commands (These scripts are stored in the directory of the same level as the gra
  ![(Variational) Container_id](Container_id.jpg)
 
 3. Running in terminal t2:
-	sudo docker cp test.sh | start.sh CONTAINER_ID:/home/biomed-ai/GraphCS/ 
+copy scripts into docker
+	`sudo docker cp test.sh | start.sh CONTAINER_ID:/home/biomed-ai/GraphCS/`
 	
 4. Then, you can run  test.sh or start.sh in terminal t1 using following commands:
 	`bash    test.sh | start.sh`
