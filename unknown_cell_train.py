@@ -1,7 +1,7 @@
 from __future__ import division
 from __future__ import print_function
-from utils import load_GBP_data, muticlass_f1, accuracy, muticlass_f1_test, \
-    get_silhouette_score,get_FPR,muticlass_f1_for_unkonw, accuracy_for_unkonw
+from utils import load_GBP_data, muticlass_f1, accuracy, \
+    get_silhouette_score,get_FPR, accuracy_for_unkonw
 import time
 import random
 import argparse
