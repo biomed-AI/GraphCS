@@ -104,7 +104,7 @@ or
 ##  Scheme III 
 You can run GraphCS with scripts, but firstly you need to copy them into the running docker with
   graphcs image as following 
-commands (These scripts are stored in the directory of the same level as the graphcs image):
+commands (These scripts are stored in the directory of the same level as the graphcs image[here](https://www.synapse.org/#!Synapse:syn26147749/files/)):
 
 1. open a new terminal named t2
 
