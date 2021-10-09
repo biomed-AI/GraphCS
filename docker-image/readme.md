@@ -119,6 +119,6 @@ copy scripts into docker as following:
 	
 4. Then, you can run scripts in **terminal t1** using following commands:
 	
-	`bash    run_on_preprocessed_data.sh | run_all_datasets.sh | run_simulate.sh | run_on_preprocessed_data.sh`
+	`bash    run_on_preprocessed_data.sh | run_all_datasets.sh | run_simulate.sh`
 	
 
