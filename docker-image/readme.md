@@ -56,12 +56,14 @@ Note: if you load graphcs iamge successfully, you will get the following informa
 The final format of the dataset is organized as follows: there are two folders, the one folder is "data", which contains the preprocessed datasets, 
 and the other folder is "example_ data", which contains raw datasets.
 
-![(Variational) data_formart](data_formart.jpg)
+![(Variational) data_formart](data_formart.png)
 
 3. Run docker with your data path:
 
-- `sudo docker run --shm-size 20g -v absolute-dir-path-to-data:/home/biomed-ai/GraphCS/data
- -v absolute-dir-path-to-example_data:/home/biomed-ai/GraphCS/example_data -it graphcs /bin/bash`
+- `sudo docker run --shm-size 20g -v absolute-dir-path-to-data(replace with your data path):/home/biomed-ai/GraphCS/data -v absolute-dir-path-to-example_data(replace with your example_data path):/home/biomed-ai/GraphCS/example_data -it graphcs /bin/bash`
+
+- For example:
+`sudo docker run --shm-size 20g -v /home/data/:/home/biomed-ai/GraphCS/data -v /home/example_data/:/home/biomed-ai/GraphCS/example_data -it graphcs /bin/bash`
 
 Please replace absolute-dir-path-to-data and absolute-dir-path-to-example_data using the absolute path of data 
 and exmaple_data that download from the [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing), respectively.
@@ -86,14 +88,18 @@ After you load the graphcs image in your Docker successfully following above two
 Note: you must execute all commands in terminal t1, which was entering the graphcs running environment. 
 
 
-##  Scheme I
+## Activate the environment 
+`source activate graphcs`
 
-`python train.py --data Baron_segerstolpe_example | Baron_mouse_Baron_human | other datasets`
+
+###  Scheme I
+
+`python train.py --data Baron_mouse_Baron_human | other datasets`
 
 
 or
 
-##  Scheme II
+###  Scheme II
 
 Follow the instructions for running GraphCS in the README.md [reproducibility](https://github.com/biomed-AI/GraphCS/tree/main/reproducibility).
 
@@ -101,7 +107,7 @@ Follow the instructions for running GraphCS in the README.md [reproducibility](h
 or 
 
 
-##  Scheme III 
+###  Scheme III 
 You can run GraphCS with scripts, but firstly you need to copy them into the running docker with
   graphcs image as following 
 commands (These scripts are stored in the directory of the same level as the graphcs image[here](https://www.synapse.org/#!Synapse:syn26147749/files/)):
