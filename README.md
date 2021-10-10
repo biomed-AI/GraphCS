@@ -20,7 +20,11 @@ cross-species scRNA-seq datasets. More importantly, our model can achieve superi
 ![(Variational) gcn](Fig._1.jpg)
 
 
-Note:  We provide a docker version, please follow instructions in the folder docker_image to use the docker version. 
+
+
+
+
+###**(Recommend) Note:  We provide a docker version, please follow instructions in the folder docker_image to use the docker version.** 
 
 ## Requirements
 - Operating system 
