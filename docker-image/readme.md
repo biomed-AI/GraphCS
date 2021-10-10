@@ -88,7 +88,7 @@ Note: you must execute all commands in terminal t1, which was entering the graph
 
 ##  Scheme I
 
-`python train.py --data Baron_mouse_Baron_human`
+`python train.py --data Baron_segerstolpe_example | Baron_mouse_Baron_human | other datasets`
 
 
 or
