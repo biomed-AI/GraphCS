@@ -117,7 +117,7 @@ we save mouse brain in h5 format due to huge storage space are needed.
 
 ## Reproduction instructions
 
-**You can reproduce all results reported in this study following the README stored in folder reproducibility.**
+**You can reproduce all results reported in this study following the README stored in folder [reproducibility](https://github.com/biomed-AI/GraphCS/tree/main/reproducibility).**
 
 Note: All raw datasets (RData format) used in this paper were saved on here [website](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing). You can download them and put them into the folder `example_data` to reproduce the results reported in this paper. On the other hand, For Python-based competing methods, you can use the function `convert_between_scanpy_seurat.R` in the folder `reproducibility/competing_methods/` to convert RData type into h5ad type. 
 
