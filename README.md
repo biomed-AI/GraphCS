@@ -22,9 +22,9 @@ cross-species scRNA-seq datasets. More importantly, our model can achieve superi
 
 
 
+# Recommend
 
-
-### **(Recommend) Note: We provide an easy-to-install docker version of GraphCS, please follow instructions in the folder docker_image to use the docker version.** 
+## **Note: We provide an easy-to-install docker version of GraphCS, please follow instructions in the folder [docker_image](https://github.com/biomed-AI/GraphCS/tree/main/docker-image) to use the docker version.** 
 
 ## Requirements
 - Operating system 
