@@ -27,12 +27,15 @@ cross-species scRNA-seq datasets. More importantly, our model can achieve superi
 ## **Note: We provide an easy-to-install docker version of GraphCS, please follow instructions in the folder [docker_image](https://github.com/biomed-AI/GraphCS/tree/main/docker-image) to use the docker version.** 
 
 ## Requirements
+Please ensure that all the libraries below are successfully installed. 
+
 - Operating system 
 
   **Ubuntu 16.04.7 LTS** 
   
   Kernel version4.4.0-189-generic
-  
+- **[cnpy](https://github.com/rogersce/cnpy)**
+- **[swig-4.0.1](https://github.com/swig/swig)**
 - **BBKNN 1.4.0**
 - **GCC 5.4.0**
 - **Scanpy 1.8.1**
@@ -40,8 +43,6 @@ cross-species scRNA-seq datasets. More importantly, our model can achieve superi
 - CUDA 10.2.89
 - Python 3.7.9
 - Pytorch 1.7.0
-- [cnpy](https://github.com/rogersce/cnpy)
-- [swig-4.0.1](https://github.com/swig/swig)
 - scrattch.io 0.1.0
 - Seurat 3.1.5
 
