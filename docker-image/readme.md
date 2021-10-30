@@ -49,7 +49,7 @@ Note: if you load graphcs iamge successfully, you will get the following informa
     
 ### Run Docker with graphcs image
 
-1. Please download the preprocessed_data (data) and raw_data (example_data) from: [data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing)
+1. Please download the  [data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing) (preprocessed_data) and [example_data](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing) (raw_data) from: [here](https://drive.google.com/drive/folders/1ST0T90HcxCKuxOTmOvqCI-IyE2IY6YvM?usp=sharing)
 
 2. Please Decompress them and organize them as the format of the data folder (folder data and example_data) in [GraphCS](https://github.com/biomed-AI/GraphCS)
 
@@ -110,7 +110,7 @@ or
 ###  Scheme III 
 You can run GraphCS with scripts, but firstly you need to copy them into the running docker with
   graphcs image as following 
-commands (These scripts are stored in the directory of the same level as the graphcs image[here](https://www.synapse.org/#!Synapse:syn26147749/files/)):
+commands (These scripts are stored in the directory of the same level as the graphcs image [here](https://www.synapse.org/#!Synapse:syn26147749/files/)):
 
 1. open a new terminal named t2
 
