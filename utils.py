@@ -123,12 +123,17 @@ def load_GBP_data(datastr,alpha,rmax,rrz, origin_data=True):
     features = torch.FloatTensor(features).T
 
    #####################################rename label#########
-    label1 = pd.read_csv(batch1_label).values.flatten()
-    label2 = pd.read_csv(batch2_label).values.flatten()
+    data1=pd.read_csv(batch1_label,header=0,index_col=0)
+    label1 = data1.values.flatten()
+    name1=data1.index
+    data2=pd.read_csv(batch2_label,header=0,index_col=0)
+    label2 = data2.values.flatten()
+    name2=data2.index
 
     labels=np.concatenate((label1, label2), axis=0)
     label_types = np.unique(labels).tolist()
     labels = pd.DataFrame(labels)
+    names=np.concatenate((name1,name2),axis=0)
     rename = {}
 
     for line in range(0, len(label_types)):
@@ -155,7 +160,7 @@ def load_GBP_data(datastr,alpha,rmax,rrz, origin_data=True):
     idx_test = torch.LongTensor(idx_test)
     print("over load data")
 
-    return features,labels,idx_train,idx_val,idx_test, rename
+    return features,labels,names,idx_train,idx_val,idx_test, rename
 
 
 def get_silhouette_score(data, cell_type):

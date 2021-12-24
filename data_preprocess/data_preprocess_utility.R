@@ -94,8 +94,8 @@ save_processed_data <- function(count.list,label.list,batch_info, data_name="exa
     hvg.features <- res1[[3]]
 
     dir.create(paste0('../data/', data_name))
-    write.csv(label.list[[1]],file=paste0('../data/', data_name, '/Label1.csv'),quote=F,row.names=F)
-    write.csv(label.list[[2]],file=paste0('../data/', data_name, '/Label2.csv'),quote=F,row.names=F)
+    write.csv(label.list[[1]],file=paste0('../data/', data_name, '/Label1.csv'),quote=F,row.names=T)
+    write.csv(label.list[[2]],file=paste0('../data/', data_name, '/Label2.csv'),quote=F,row.names=T)
     printer = file(paste0('../data/', data_name, '/batch_info.txt'),"w")
     writeLines(as.character(batch_info),con=printer,sep=' ')
     close(printer)

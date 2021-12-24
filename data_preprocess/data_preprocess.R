@@ -15,14 +15,17 @@ get_data_from_seurat_obj_with_unique<-function(data_name){
     test_label=data[[2]]@meta.data$CellType
     train_info=data[[1]]@meta.data$batchlb
     test_info=data[[2]]@meta.data$batchlb
+    train_sample=data[[1]]@assays$RNA@counts@Dimnames[[2]]
+    test_sample=data[[2]]@assays$RNA@counts@Dimnames[[2]]
     data_info=c(train_info,test_info)
     id=unique(data_info)
     batch_info=c()
     for(i in id){
         batch_info=c(batch_info,sum(data_info==i))
     }
-    train_row_names=c(1:length(train_label))
-    test_row_names=c((1+length(train_label)):(length(test_label)+length(train_label)))
+    sample_info=c(train_sample,test_sample)
+    train_row_names=train_sample
+    test_row_names=test_sample
     
     colnames(train_data)=train_row_names
     colnames(test_data)=test_row_names

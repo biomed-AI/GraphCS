@@ -50,17 +50,28 @@ np.random.seed(args.seed)
 torch.manual_seed(args.seed)
 torch.cuda.manual_seed(args.seed)
 
+class SimpleSet(Data.Dataset):
+    def __init__(self,features,labels,names):
+        self.features=features
+        self.labels=labels
+        self.names=names
+        self.size=len(names)
+    def __len__(self):
+        return self.size
+    def __getitem__(self,idx):
+        return self.features[idx],(self.labels[idx],self.names[idx])
 
 print("--------------------------")
 print(args)
 
 
-features,labels,idx_train,idx_val,idx_test, rename = load_GBP_data(args.data,args.alpha,args.rmax,args.rrz)
-ori_labels=labels
-ori_idx_test=idx_test
+features,labels,names,idx_train,idx_val,idx_test, rename = load_GBP_data(args.data,args.alpha,args.rmax,args.rrz)
 ori_features=features
+ori_labels=labels
+ori_names=names
 ori_idx_train=idx_train
 ori_idx_val=idx_val
+ori_idx_test=idx_test
 
 begin_time = time.time()
 checkpt_file = 'pretrained/'+uuid.uuid4().hex+'.pt'
@@ -81,15 +92,16 @@ loss_fn = nn.CrossEntropyLoss()
 
 features = features
 labels = labels
+names=names
 
-torch_dataset = Data.TensorDataset(features[idx_train], labels[idx_train])
+torch_dataset = SimpleSet(features[idx_train], labels[idx_train],names[idx_train])
 loader = Data.DataLoader(dataset=torch_dataset,
                         batch_size=args.batch,
                         shuffle=True,
                         num_workers=3) # num_workers=6
 
 
-torch_test_dataset = Data.TensorDataset(features[idx_test], labels[idx_test])
+torch_test_dataset = SimpleSet(features[idx_test], labels[idx_test],names[idx_test])
 test_loader = Data.DataLoader(dataset=torch_test_dataset,
                         batch_size=args.batch,
                         shuffle=True,
@@ -106,7 +118,7 @@ def train():
     for (batch_x, batch_y), (test_batch_x, test_batch_y) in zip(loader, test_loader):
 
         batch_x = batch_x.cuda()
-        batch_y = batch_y.cuda()
+        batch_y = batch_y[0].cuda()
 
         optimizer.zero_grad()
         output = model(batch_x)
@@ -181,10 +193,13 @@ def test_chunk(rename):
     with torch.no_grad():
         output_list = []
         test_chunk_lable = []
+        test_chunk_name=[]
         for batch_x, batch_y in test_loader:
             batch_x = batch_x.cuda()
+            batch_y,batch_y_name=batch_y
             output_list.append(model(batch_x))
             test_chunk_lable.extend(batch_y)
+            test_chunk_name.extend(batch_y_name)
 
         output = output_list[0]
         for i in range(1, len(output_list)):
@@ -208,7 +223,9 @@ def test_chunk(rename):
         test_labels = pd.DataFrame({"true_label": test_labels})
         output = output.replace(rename).values.flatten()
         test_labels = test_labels.replace(rename).values.flatten()
-        pd.DataFrame({"true_label": test_labels, "pred_label": output}).to_csv(args.data + "_pred.csv", index=False)
+        result=pd.DataFrame({"true_label": test_labels, "pred_label": output}, index=test_chunk_name)
+        result=result.loc[ori_names[idx_test]]
+        result.to_csv(args.data + "_pred.csv")
 
         ####################################
 
